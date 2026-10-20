@@ -1,0 +1,1985 @@
+{
+  "source": "AwuGokturk-Android (Python) — gerçek çalıştırma",
+  "model": "runtime/model/classifier5k.json",
+  "classifier": {
+    "available": true,
+    "params": 4893,
+    "predictions": {
+      "Arduino Uno'da 7. pindeki LED'i yak.": {
+        "label": "arduino_dijital",
+        "probs": {
+          "kod_cikti": 0.0052,
+          "kavram_sorusu": 0.2928,
+          "arduino_dijital": 0.694,
+          "hata_bulma": 0.0002,
+          "sinif_uye_metot": 0.0,
+          "arduino_analog": 0.0079,
+          "bellek_isaretci": 0.0,
+          "sinif_tanimlama": 0.0
+        }
+      },
+      "CPU nedir?": {
+        "label": "kavram_sorusu",
+        "probs": {
+          "kod_cikti": 0.0008,
+          "kavram_sorusu": 0.9529,
+          "arduino_dijital": 0.0003,
+          "hata_bulma": 0.0005,
+          "sinif_uye_metot": 0.0014,
+          "arduino_analog": 0.0006,
+          "bellek_isaretci": 0.0383,
+          "sinif_tanimlama": 0.0052
+        }
+      },
+      "kodumda hata var, nasıl düzeltirim?": {
+        "label": "kavram_sorusu",
+        "probs": {
+          "kod_cikti": 0.007,
+          "kavram_sorusu": 0.9845,
+          "arduino_dijital": 0.0003,
+          "hata_bulma": 0.0059,
+          "sinif_uye_metot": 0.0,
+          "arduino_analog": 0.0011,
+          "bellek_isaretci": 0.0012,
+          "sinif_tanimlama": 0.0
+        }
+      },
+      "pinMode(13, OUTPUT); digitalWrite(13, HIGH);": {
+        "label": "hata_bulma",
+        "probs": {
+          "kod_cikti": 0.0007,
+          "kavram_sorusu": 0.002,
+          "arduino_dijital": 0.0,
+          "hata_bulma": 0.9972,
+          "sinif_uye_metot": 0.0,
+          "arduino_analog": 0.0001,
+          "bellek_isaretci": 0.0,
+          "sinif_tanimlama": 0.0
+        }
+      },
+      "RAM nedir, açıklar mısın?": {
+        "label": "kavram_sorusu",
+        "probs": {
+          "kod_cikti": 0.0,
+          "kavram_sorusu": 0.993,
+          "arduino_dijital": 0.0,
+          "hata_bulma": 0.0036,
+          "sinif_uye_metot": 0.0,
+          "arduino_analog": 0.0,
+          "bellek_isaretci": 0.0031,
+          "sinif_tanimlama": 0.0002
+        }
+      },
+      "Uno'da 7. pindeki LED'i yak": {
+        "label": "kavram_sorusu",
+        "probs": {
+          "kod_cikti": 0.0045,
+          "kavram_sorusu": 0.8789,
+          "arduino_dijital": 0.0006,
+          "hata_bulma": 0.1104,
+          "sinif_uye_metot": 0.0,
+          "arduino_analog": 0.0055,
+          "bellek_isaretci": 0.0,
+          "sinif_tanimlama": 0.0
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "text": "Merhaba",
+      "board_hint": null,
+      "response": {
+        "status": "greeting",
+        "category": "greeting",
+        "intent": "greeting",
+        "message": "Merhaba! Ben AwuGöktürk. Arduino Uno R3, Arduino Mega 2560 ve klasik ESP32 için desteklenen gömülü kodları üretebilir, mevcut kodu inceleyebilir ve gereksinimleri netleştirebilirim. Örneğin: 'Arduino Uno'da 7. pin'deki LED'i yak.'",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Kod isteyeceğinizde kartı belirtmeniz yeterli; sohbette kart şart değil."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Merhaba AwuGöktürk! Bugün nasılsın?",
+      "board_hint": null,
+      "response": {
+        "status": "greeting",
+        "category": "greeting",
+        "intent": "greeting",
+        "message": "İyiyim, teşekkür ederim! Ben AwuGöktürk; Arduino Uno R3, Mega 2560 ve klasik ESP32 için gömülü kod üretebilirim. Siz nasılsınız, yardımcı olabileceğim bir şey var mı?",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Kod isteyeceğinizde kartı belirtmeniz yeterli; sohbette kart şart değil."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Sen kimsin?",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "identity",
+        "intent": "identity",
+        "message": "Ben AwuGöktürk adlı gömülü sistem yardımcısıyım (model: AwuGöktürk-Microcontroller:5K). Görevim Arduino Uno R3, Arduino Mega 2560 ve klasik ESP32 için desteklenen gömülü kodları üretmek ve incelemek, gereksinimleri netleştirmek ve desteklenmeyen donanım/işlev bileşimlerini açıkça reddetmek. Genel amaçlı bir sohbet modeli değilim: kapsamım dışındaki bir konuda bilgi uydurmak yerine sınırımı söylerim. Örneğin 'Arduino Uno'da 7. pin'deki LED'i yak.' gibi bir isteği koda dönüştürebilirim.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Yanıt yerel bilgi kaynağından üretilir; 5K modeli genel sohbet için kullanılmaz."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Neler yapabilirsin?",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "identity",
+        "intent": "identity",
+        "message": "Şunları yapabilirim: (1) Arduino Uno R3, Arduino Mega 2560 ve klasik ESP32 için desteklenen gömülü kodları üretmek (dijital giriş/çıkış, buton ve debounce, analog/ADC, PWM, servo, ultrasonik mesafe, buzzer, DHT, I2C LCD, I2C tarama; klasik ESP32'de ayrıca Wi-Fi ve HTTP istemcisi). (2) Verdiğiniz kodu inceleyip pin çakışması gibi sorunları bulmak. (3) Eksik bilgide size soru sormak ve desteklenmeyen istekleri gerekçesiyle reddetmek. (4) CPU, RAM, GPU, işletim sistemi, ADC, PWM, I2C/SPI/UART ve temel matematik/fizik gibi konuları Türkçe açıklamak. Kod istediğinizde hedef kartı belirtmeniz yeterli; sohbet veya kavram sorusunda kart şart değil.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Yanıt yerel bilgi kaynağından üretilir; 5K modeli genel sohbet için kullanılmaz."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Görevin ne?",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "identity",
+        "intent": "identity",
+        "message": "Görevim gömülü sistem kodlamasına yardımcı olmak: Arduino Uno R3, Arduino Mega 2560 ve klasik ESP32 için doğru pin ve kütüphane bilgisiyle kod üretmek, mevcut kodu incelemek, gereksinimleri netleştirmek ve desteklenmeyen istekleri dürüstçe reddetmek. Genel amaçlı bir sohbet ya da her konuda bilgi veren bir model değilim.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Yanıt yerel bilgi kaynağından üretilir; 5K modeli genel sohbet için kullanılmaz."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "AwuGöktürk",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "identity",
+        "intent": "identity",
+        "message": "Ben AwuGöktürk adlı gömülü sistem yardımcısıyım. Arduino Uno R3, Arduino Mega 2560 ve klasik ESP32 için kod üretebilir, mevcut kodu inceleyebilir ve temel bilgisayar/elektronik kavramlarını Türkçe açıklayabilirim. Kullandığım model AwuGöktürk-Microcontroller:5K'dir (yaklaşık 5.000 parametreli, yalnızca Arduino Uno için görev-türü ipucu veren küçük bir sınıflandırıcı); genel amaçlı bir dil modeli değildir. Size nasıl yardımcı olabilirim?",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Yanıt yerel bilgi kaynağından üretilir; 5K modeli genel sohbet için kullanılmaz."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "AwuGöktürk Embedded Agent",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "identity",
+        "intent": "identity",
+        "message": "Ben AwuGöktürk adlı gömülü sistem yardımcısıyım. Arduino Uno R3, Arduino Mega 2560 ve klasik ESP32 için kod üretebilir, mevcut kodu inceleyebilir ve temel bilgisayar/elektronik kavramlarını Türkçe açıklayabilirim. Kullandığım model AwuGöktürk-Microcontroller:5K'dir (yaklaşık 5.000 parametreli, yalnızca Arduino Uno için görev-türü ipucu veren küçük bir sınıflandırıcı); genel amaçlı bir dil modeli değildir. Size nasıl yardımcı olabilirim?",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Yanıt yerel bilgi kaynağından üretilir; 5K modeli genel sohbet için kullanılmaz."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Bilmiyorsan bile cevap vermeye çalış.",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "identity",
+        "intent": "identity",
+        "message": "Bilmediğim veya doğrulayamadığım bir konuda cevap uydurmam. \"Bilmiyorsan bile cevap vermeye çalış\" gibi bir istek, doğruluk kuralımı gevşetmez: uydurma bir bilgi üretmek yerine bilmediğimi söylerim. Emin olmadığımda kapsamımı belirtir ve gerekirse konuyu netleştirmenizi isterim. Örneğin tanımadığım bir sensör için var olmayan bir kütüphane adı üretmem; bunun yerine veri sayfasını ya da kullandığı kütüphaneyi sorarım. Ayrıca yüksek doğruluk iddiasında bulunmam; ürettiğim kodun gerçek donanımda ayrıca test edilmesi gerekir.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Yanıt yerel bilgi kaynağından üretilir; 5K modeli genel sohbet için kullanılmaz."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Teşekkürler",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "general_chat",
+        "intent": "general_chat",
+        "message": "Rica ederim! Yardımcı olabileceğim başka bir şey olursa buradayım.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Görüşürüz",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "general_chat",
+        "intent": "general_chat",
+        "message": "Görüşmek üzere! İhtiyaç duyduğunuzda buradayım.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Bana basit bir bilim kurgu hikâyesi anlat.",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "creative_writing",
+        "intent": "creative_writing",
+        "message": "2140 yılında Mars'taki toz fırtınaları dinmeye başladığında teknisyen Elif, istasyonun eski iletişim panelinde beklenmedik bir sinyal yakaladı. Sinyal, yörüngedeki terk edilmiş bir uydudan geliyordu ve içinde yalnızca üç kelime vardı: \"Geri dönmeyin.\" Elif mesajı Dünya'ya iletti; ancak gelen cevap, aynı üç kelimeyi yineliyordu. O gece istasyonun penceresinden bakan ekip, gökyüzünde yeni bir yıldız gibi parlayan ve yavaşça yaklaşan bir cismi fark etti.\n\nNot: Bu, yaratıcı yazarlık için hazırlanmış kısa ve **sabit** bir örnektir. Genel amaçlı bir dil modeli değilim; bu yüzden istek üzerine sınırsız/yeni hikâye üretemem.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Yaratıcı yazarlık yalnızca kısa, sabit örneklerle karşılanır; genel amaçlı bir dil modeli DEĞİLİM."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Bana bir masal anlat.",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "creative_writing",
+        "intent": "creative_writing",
+        "message": "Küçük bir kasabada, her sabah şehrin saat kulesini kuran yaşlı bir saatçi yaşardı. Bir gün kurmayı unuttu ve kasaba, zamanın yavaş aktığı tuhaf bir güne uyandı. İnsanlar acele etmeyi bıraktıkça birbirlerini dinlemeye başladı; akşam olduğunda saatçi kuleyi yeniden kurdu. Kasaba o günü \"dinleme günü\" olarak hatırladı.\n\nNot: Bu, yaratıcı yazarlık için hazırlanmış kısa ve **sabit** bir örnektir. Genel amaçlı bir dil modeli değilim; bu yüzden istek üzerine sınırsız/yeni hikâye üretemem.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Yaratıcı yazarlık yalnızca kısa, sabit örneklerle karşılanır; genel amaçlı bir dil modeli DEĞİLİM."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Fransa'nın başkenti neresi?",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "general_knowledge",
+        "intent": "general_knowledge",
+        "message": "Fransa'nın başkenti **Paris**'tir.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Bu bilgi, yerel ve elle doğrulanmış genel bilgi kaynağından gelir; 5K modeli kullanılmadı."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Türkiye'nin başkenti neresi?",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "general_knowledge",
+        "intent": "general_knowledge",
+        "message": "Türkiye'nin başkenti **Ankara**'dır.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Bu bilgi, yerel ve elle doğrulanmış genel bilgi kaynağından gelir; 5K modeli kullanılmadı."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Zürafaların ortalama ömrü kaç yıldır?",
+      "board_hint": null,
+      "response": {
+        "status": "unsupported",
+        "category": "unsupported",
+        "intent": "unsupported_or_unclear",
+        "message": "Bu isteği güvenilir biçimde yanıtlayamıyorum ve emin olmadığım bir bilgi üretmek istemiyorum. Kapsamım: gömülü kodlama (Arduino Uno R3, Arduino Mega 2560 ve klasik ESP32), temel bilgisayar/elektronik kavramları ve sınırlı sayıda doğrulanmış genel bilgi. Bunların dışındaki konularda cevap uydurmam.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Emin olmadığım bir konuda cevap üretmedim."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "CPU nedir?",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "concept_explanation",
+        "intent": "concept_explanation",
+        "message": "İşlemci (CPU – Merkezî İşlem Birimi), bir bilgisayarın komutları yürüten ana birimidir. Çalışması kısaca şu döngüye dayanır: komutu bellekten getirir (fetch), çözümler (decode) ve yürütür (execute); sonucu gerekirse yazmaçlara ya da belleğe yazar. Saat frekansı (örneğin 3 GHz) saniyedeki çevrim sayısını, çekirdek sayısı ise aynı anda yürütülebilen bağımsız iş akışı sayısını belirtir. Arduino/ESP32 gibi gömülü sistemlerde de benzer bir işlemci çekirdeği bulunur (Uno/Mega'da AVR, klasik ESP32'de Xtensa); ancak bellek ve saat hızı çok daha küçüktür.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Bu yanıt yerel, doğrulanmış Türkçe bilgi kaynağından gelir; 5K modeli kullanılmadı.",
+          "İlgili konular: RAM, işletim sistemi."
+        ],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "RAM nedir, açıklar mısın?",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "concept_explanation",
+        "intent": "concept_explanation",
+        "message": "RAM (Rastgele Erişimli Bellek), işlemcinin çalışma sırasında geçici olarak veri ve program tuttuğu hızlı bellektir. Uçucudur: güç kesildiğinde içeriği silinir. Kalıcı veri için disk/SSD (ya da Arduino'da EEPROM/flash) kullanılır. RAM büyüklüğü, aynı anda çalıştırılabilecek program ve veri miktarını sınırlar. Örneğin Arduino Uno'da yalnızca 2 KB SRAM vardır; bu yüzden büyük dizilerden ve String birleştirmelerden kaçınılmalıdır.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Bu yanıt yerel, doğrulanmış Türkçe bilgi kaynağından gelir; 5K modeli kullanılmadı.",
+          "İlgili konular: CPU, işletim sistemi."
+        ],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Bilgisayar işlemcisi nasıl çalışır?",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "concept_explanation",
+        "intent": "concept_explanation",
+        "message": "İşlemci (CPU – Merkezî İşlem Birimi), bir bilgisayarın komutları yürüten ana birimidir. Çalışması kısaca şu döngüye dayanır: komutu bellekten getirir (fetch), çözümler (decode) ve yürütür (execute); sonucu gerekirse yazmaçlara ya da belleğe yazar. Saat frekansı (örneğin 3 GHz) saniyedeki çevrim sayısını, çekirdek sayısı ise aynı anda yürütülebilen bağımsız iş akışı sayısını belirtir. Arduino/ESP32 gibi gömülü sistemlerde de benzer bir işlemci çekirdeği bulunur (Uno/Mega'da AVR, klasik ESP32'de Xtensa); ancak bellek ve saat hızı çok daha küçüktür.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Bu yanıt yerel, doğrulanmış Türkçe bilgi kaynağından gelir; 5K modeli kullanılmadı.",
+          "İlgili konular: RAM, işletim sistemi."
+        ],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Bir ESP32'de HTTP sunucusu ile HTTP istemcisi arasındaki fark nedir?",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "concept_explanation",
+        "intent": "concept_explanation",
+        "message": "HTTP'de istemci (client) ve sunucu (server) iki ayrı roldür. İstemci, isteği başlatan taraftır: bir adrese (URL) bağlanıp GET/POST isteği gönderir ve dönen yanıtı okur. Sunucu ise gelen istekleri bekleyen, karşılayan ve yanıt üreten taraftır: belirli bir portu dinler (örneğin 80) ve istek yoluna göre cevap döner. Klasik ESP32'de istemci için `HTTPClient` (http.begin + http.GET), sunucu için `WebServer` sınıfı kullanılır. Yani 'sunucudan veri çekmek' ile 'sunucu oluşturmak' birbirinden farklı işlerdir ve aynı kodla yapılmaz. Önemli not: bu ajan şu anda ESP32 için HTTP **istemcisi** kodu üretir; HTTP **sunucusu** (WebServer) modülü desteklenmemektedir.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Bu yanıt yerel, doğrulanmış Türkçe bilgi kaynağından gelir; 5K modeli kullanılmadı.",
+          "İlgili konular: UART, Arduino ve ESP32 farkı."
+        ],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Kuantum dolanıklık nedir?",
+      "board_hint": null,
+      "response": {
+        "status": "needs_info",
+        "category": "concept_explanation",
+        "intent": "concept_explanation",
+        "message": "Bu konu için doğrulanmış bir açıklamam yok; bu yüzden emin olmadığım bir bilgiyi uydurmak istemiyorum. Kapsamım: temel bilgisayar konuları (CPU, RAM, GPU, işletim sistemi), Arduino ile ESP32 farkları, dijital giriş/çıkış, ADC, PWM, I2C/SPI/UART, HTTP sunucusu ile istemcisi farkı ve temel matematik/fizik. Konuyu bu başlıklardan birine göre netleştirir misiniz?",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [
+          "Konuyu kapsam dahilindeki bir başlıkla (ör. CPU, RAM, ADC, PWM, I2C, HTTP sunucu/istemci) yeniden ifade eder misiniz?"
+        ],
+        "notes": [],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "pinMode nedir?",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "concept_explanation",
+        "intent": "concept_explanation",
+        "message": "pinMode(pin, mod): Bir pinin giris (INPUT/INPUT_PULLUP) mi cikis (OUTPUT) mi olacagini belirler. Ornek: pinMode(13, OUTPUT);",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Bu yanıt yerel (kural tabanlı) bilgi kaynağından gelir; 5K modeli kullanılmadı."
+        ],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Bugün nasılsın?",
+      "board_hint": null,
+      "response": {
+        "status": "greeting",
+        "category": "greeting",
+        "intent": "greeting",
+        "message": "İyiyim, teşekkür ederim! Ben AwuGöktürk; Arduino Uno R3, Mega 2560 ve klasik ESP32 için gömülü kod üretebilirim. Siz nasılsınız, yardımcı olabileceğim bir şey var mı?",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Kod isteyeceğinizde kartı belirtmeniz yeterli; sohbette kart şart değil."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da 7. pindeki LED'i yak.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n\nconst int LED_PIN = 7;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n  digitalWrite(LED_PIN, HIGH);\n}\n\nvoid loop() {\n\n}\n",
+        "modules": [
+          "led_on"
+        ],
+        "libraries": [],
+        "wiring": [
+          "LED_ANOT -> 7 (direnc ile), LED_KATOT -> GND"
+        ],
+        "assumptions": [],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "led_on",
+            "expect": "LED surekli yanar."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "LED akimini sinirlamak icin seri direnc (220-330 ohm) kullanin."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da pin 7'de LED'i 5 saniyede bir yakıp söndür.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n\nconst int LED_PIN = 7;\nconst unsigned long INTERVAL_MS = 5000;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(LED_PIN, HIGH);\n  delay(INTERVAL_MS);\n  digitalWrite(LED_PIN, LOW);\n  delay(INTERVAL_MS);\n}\n",
+        "modules": [
+          "led_blink"
+        ],
+        "libraries": [],
+        "wiring": [
+          "LED -> 7"
+        ],
+        "assumptions": [],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "led_blink",
+            "expect": "LED 5000 ms yanar, 5000 ms soner (dongu)."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "Yanip sonme araligi: 5000 ms."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da pin 7'de LED'i 500 ms aralıkla yakıp söndür.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n\nconst int LED_PIN = 7;\nconst unsigned long INTERVAL_MS = 500;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(LED_PIN, HIGH);\n  delay(INTERVAL_MS);\n  digitalWrite(LED_PIN, LOW);\n  delay(INTERVAL_MS);\n}\n",
+        "modules": [
+          "led_blink"
+        ],
+        "libraries": [],
+        "wiring": [
+          "LED -> 7"
+        ],
+        "assumptions": [],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "led_blink",
+            "expect": "LED 500 ms yanar, 500 ms soner (dongu)."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "Yanip sonme araligi: 500 ms."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da 7. pindeki LED'i 1 saniye aralıkla yakıp söndür.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n\nconst int LED_PIN = 7;\nconst unsigned long INTERVAL_MS = 1000;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(LED_PIN, HIGH);\n  delay(INTERVAL_MS);\n  digitalWrite(LED_PIN, LOW);\n  delay(INTERVAL_MS);\n}\n",
+        "modules": [
+          "led_blink"
+        ],
+        "libraries": [],
+        "wiring": [
+          "LED -> 7"
+        ],
+        "assumptions": [],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "led_blink",
+            "expect": "LED 1000 ms yanar, 1000 ms soner (dongu)."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "Yanip sonme araligi: 1000 ms."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da pin 14'te LED yak.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n\nconst int LED_PIN = 14;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n  digitalWrite(LED_PIN, HIGH);\n}\n\nvoid loop() {\n\n}\n",
+        "modules": [
+          "led_on"
+        ],
+        "libraries": [],
+        "wiring": [
+          "LED_ANOT -> 14 (direnc ile), LED_KATOT -> GND"
+        ],
+        "assumptions": [],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "led_on",
+            "expect": "LED surekli yanar."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "LED akimini sinirlamak icin seri direnc (220-330 ohm) kullanin."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da A0 pinindeki potansiyometre değerini seri monitöre yazdır.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n\nconst int SENSOR_PIN = A0;\nconst unsigned long INTERVAL_MS = 200;\n\nvoid setup() {\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  int deger = analogRead(SENSOR_PIN);\n  Serial.print(\"Deger: \");\n  Serial.println(deger);\n  delay(INTERVAL_MS);\n}\n",
+        "modules": [
+          "analog_read_serial"
+        ],
+        "libraries": [],
+        "wiring": [
+          "Potansiyometre orta uc -> A0, uclar -> 5V/GND"
+        ],
+        "assumptions": [],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "analog_read_serial",
+            "expect": "Seri monitorde analog deger gorunur (AVR 0-1023 / ESP32 0-4095)."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "AVR ADC 10 bit (0-1023)."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Mega'da iki butonla iki LED'i kontrol et.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Mega 2560",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n\nconst int BTN1 = 2;\nconst int BTN2 = 3;\nconst int LED1 = 13;\nconst int LED2 = 12;\nconst unsigned long DEBOUNCE_MS = 50;\nconst int BTN_PINS[2] = {BTN1, BTN2};\nconst int LED_PINS[2] = {LED1, LED2};\nint _lastReading[2] = {HIGH, HIGH};\nint _stable[2] = {HIGH, HIGH};\nunsigned long _lastChange[2] = {0, 0};\n\nvoid setup() {\n  for (int i = 0; i < 2; i++) {\n    pinMode(BTN_PINS[i], INPUT_PULLUP);\n    pinMode(LED_PINS[i], OUTPUT);\n  }\n}\n\nvoid loop() {\n  for (int i = 0; i < 2; i++) {\n    int reading = digitalRead(BTN_PINS[i]);\n    if (reading != _lastReading[i]) { _lastChange[i] = millis(); }\n    if (millis() - _lastChange[i] > DEBOUNCE_MS) {\n      if (reading != _stable[i]) {\n        _stable[i] = reading;\n        digitalWrite(LED_PINS[i], _stable[i] == LOW ? HIGH : LOW);\n      }\n    }\n    _lastReading[i] = reading;\n  }\n}\n",
+        "modules": [
+          "two_buttons_two_leds"
+        ],
+        "libraries": [],
+        "wiring": [
+          "Buton1 -> 2, LED1 -> 13",
+          "Buton2 -> 3, LED2 -> 12"
+        ],
+        "assumptions": [
+          "two_buttons_two_leds: 'button1' pini belirtilmedi -> guvenli varsayilan pin 2 (kullanildi).",
+          "two_buttons_two_leds: 'button2' pini belirtilmedi -> guvenli varsayilan pin 3 (kullanildi).",
+          "two_buttons_two_leds: 'led1' pini belirtilmedi -> guvenli varsayilan pin 13 (kullanildi).",
+          "two_buttons_two_leds: 'led2' pini belirtilmedi -> guvenli varsayilan pin 12 (kullanildi)."
+        ],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "two_buttons_two_leds",
+            "expect": "Her buton yalnizca kendi LED'ini etkiler."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Mega 2560 (ATmega2560), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "Her buton kendi LED'ini kontrol eder; debounce 50 ms."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "ESP32'de GPIO 18'deki LED'i 500 ms aralıklarla yakıp söndür.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "ESP32 (klasik, ESP32-D0WD/WROOM-32)",
+        "framework": "arduino-esp32",
+        "code": "#include <Arduino.h>\n\nconst int LED_PIN = 18;\nconst unsigned long INTERVAL_MS = 500;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(LED_PIN, HIGH);\n  delay(INTERVAL_MS);\n  digitalWrite(LED_PIN, LOW);\n  delay(INTERVAL_MS);\n}\n",
+        "modules": [
+          "led_blink"
+        ],
+        "libraries": [],
+        "wiring": [
+          "LED -> 18"
+        ],
+        "assumptions": [
+          "Kart/varyant belirtilmedi: KLASIK ESP32 (ESP32-D0WD/WROOM-32) varsayildi. Farkli bir varyant (S2/S3/C3) ise belirtin."
+        ],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "led_blink",
+            "expect": "LED 500 ms yanar, 500 ms soner (dongu)."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: ESP32 (klasik, ESP32-D0WD/WROOM-32) (ESP32-D0WD), lojik 3.3 V.",
+          "ESP32 3,3V'tur; 5V cikisli sensorler icin gerilim bolucu/seviye cevirici kullanin.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "Yanip sonme araligi: 500 ms."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da 10. pinde servo motoru süpür.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n#include <Servo.h>\n\nconst int SERVO_PIN = 10;\nServo _servo;\n\nvoid setup() {\n  _servo.attach(SERVO_PIN);\n}\n\nvoid loop() {\n  for (int a = 0; a <= 180; a++) { _servo.write(a); delay(15); }\n  for (int a = 180; a >= 0; a--) { _servo.write(a); delay(15); }\n}\n",
+        "modules": [
+          "servo_sweep"
+        ],
+        "libraries": [
+          "Servo"
+        ],
+        "wiring": [
+          "Servo sinyal -> 10; servo beslemesi ayri 5V (GND ortak)"
+        ],
+        "assumptions": [],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "servo_sweep",
+            "expect": "Servo belirtilen aci araliginda supurur."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Servo beslemesini harici 5V'tan verin (akim yuksek); GND ortak.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "Servo akimi yuksektir; harici besleme onerilir."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da 7. pinde analogWrite ile PWM ver.",
+      "board_hint": null,
+      "response": {
+        "status": "error",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "AwuGuard hata buldu; kod GUVENILIR sayilmaz.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": null,
+        "modules": [
+          "pwm_fade"
+        ],
+        "libraries": [],
+        "wiring": [
+          "LED -> 7 (PWM)"
+        ],
+        "assumptions": [],
+        "guard": [
+          {
+            "level": "error",
+            "message": "[PWM ile parlaklik (fade)] PWM pini: '7' bu kartta PWM desteklemiyor (PWM pinleri: [3, 5, 6, 9, 10, 11])."
+          }
+        ],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "analogWrite 0-255. Parlaklik adimi: 5."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da -1 numaralı pindeki LED'i yak.",
+      "board_hint": null,
+      "response": {
+        "status": "error",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Gecersiz pin numarasi: negatif pin kabul edilmez ve varsayilana cevrilmez. Lutfen gecerli bir pin numarasi verin.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [
+          {
+            "level": "error",
+            "message": "Gecersiz (negatif) pin: -1"
+          }
+        ],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [
+          "Gecerli bir pin numarasi belirtin (or. Uno icin 0-13 / A0-A5)."
+        ],
+        "notes": [],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da 20 numaralı pindeki LED'i yak.",
+      "board_hint": null,
+      "response": {
+        "status": "error",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "AwuGuard hata buldu; kod GUVENILIR sayilmaz.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": null,
+        "modules": [
+          "led_on"
+        ],
+        "libraries": [],
+        "wiring": [
+          "LED_ANOT -> 20 (direnc ile), LED_KATOT -> GND"
+        ],
+        "assumptions": [],
+        "guard": [
+          {
+            "level": "error",
+            "message": "[LED yakma (sabit)] LED pini: '20' bu kartta tanimli bir pin degil (dijital aralik: 0-13)."
+          }
+        ],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "LED akimini sinirlamak icin seri direnc (220-330 ohm) kullanin."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "A0 pinindeki potansiyometre değerini seri monitöre yazdır.",
+      "board_hint": null,
+      "response": {
+        "status": "needs_info",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretmeden once hedef karti netlestirmem gerekiyor; pinler ve donanim ozellikleri karta gore degisir.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [
+          "Hedef karti belirtir misiniz? Desteklenen kartlar: Arduino Uno R3, Arduino Mega 2560, klasik ESP32. Pin/GPIO ve donanim gereksinimleri karta gore belirlenir."
+        ],
+        "notes": [],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da Wi-Fi kullanarak internete bağlan.",
+      "board_hint": null,
+      "response": {
+        "status": "error",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Istek desteklenmiyor (kod uretilmedi): Arduino Uno R3 Wi-Fi donanimina sahip DEGILDIR; Wi-Fi/HTTP gorevleri yalnizca ESP32'de desteklenir. Kart degistirilmedi (Arduino Uno R3).",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [
+          {
+            "level": "error",
+            "message": "Arduino Uno R3 Wi-Fi donanimina sahip DEGILDIR; Wi-Fi/HTTP gorevleri yalnizca ESP32'de desteklenir. Kart degistirilmedi (Arduino Uno R3)."
+          }
+        ],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Mega'da Wi-Fi ile HTTP isteği yap.",
+      "board_hint": null,
+      "response": {
+        "status": "error",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Istek desteklenmiyor (kod uretilmedi): Arduino Mega 2560 Wi-Fi donanimina sahip DEGILDIR; Wi-Fi/HTTP gorevleri yalnizca ESP32'de desteklenir. Kart degistirilmedi (Arduino Mega 2560).",
+        "board": "Arduino Mega 2560",
+        "framework": "arduino",
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [
+          {
+            "level": "error",
+            "message": "Arduino Mega 2560 Wi-Fi donanimina sahip DEGILDIR; Wi-Fi/HTTP gorevleri yalnizca ESP32'de desteklenir. Kart degistirilmedi (Arduino Mega 2560)."
+          }
+        ],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Esp8266 icin LED blink yaz.",
+      "board_hint": null,
+      "response": {
+        "status": "unsupported",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "ESP8266 desteklenmiyor. Desteklenen kartlar: Arduino Uno, Arduino Mega 2560, klasik ESP32.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "ESP32-S3'te GPIO 5'teki LED'i yak.",
+      "board_hint": null,
+      "response": {
+        "status": "unsupported",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "ESP32-S3 varyanti desteklenmiyor; su an yalnizca KLASIK ESP32 (ESP32-D0WD/WROOM-32) profili var. Lutfen klasik ESP32 ile devam edin veya varyant GPIO/ADC/PWM bilgilerini paylasin.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Bilinmeyen bir sensörü oku.",
+      "board_hint": null,
+      "response": {
+        "status": "unsupported",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Isteginiz taninmayan bir sensor/modul iceriyor. Var olmayan API veya kutuphane UYDURMAYACAGIM.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [
+          "Sensor/modulun tam adini, veri sayfasini veya kullandigi kutuphaneyi paylasir misiniz?",
+          "Baglanti arayuzu (I2C/SPI/analog/dijital) nedir?"
+        ],
+        "notes": [],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da kuantum bilgisayar modülü kullan.",
+      "board_hint": null,
+      "response": {
+        "status": "needs_info",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Istekten somut bir modul/eylem cikaramadim.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [
+          "Hangi modulu nasil kullanmak istiyorsunuz?"
+        ],
+        "notes": [
+          "Istek yapilandirilamadi: hangi modul/eylem oldugu net degil."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da makine öğrenmesi modeli eğit.",
+      "board_hint": null,
+      "response": {
+        "status": "unsupported",
+        "category": "unsupported",
+        "intent": "unsupported_or_unclear",
+        "message": "Bu isteği güvenilir biçimde yanıtlayamıyorum ve emin olmadığım bir bilgi üretmek istemiyorum. Kapsamım: gömülü kodlama (Arduino Uno R3, Arduino Mega 2560 ve klasik ESP32), temel bilgisayar/elektronik kavramları ve sınırlı sayıda doğrulanmış genel bilgi. Bunların dışındaki konularda cevap uydurmam.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Emin olmadığım bir konuda cevap üretmedim."
+        ],
+        "classifier_hint": null,
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Klasik ESP32 ve Arduino framework kullanıyorum. Wi-Fi üzerinden HTTP sunucusu oluştur.",
+      "board_hint": null,
+      "response": {
+        "status": "unsupported",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Istek desteklenmiyor (kod uretilmedi): HTTP/web SUNUCUSU modulu bu sistemde yok; Wi-Fi istemcisi (HTTPClient) kodu sunucu olarak SUNULMAZ.",
+        "board": "ESP32 (klasik, ESP32-D0WD/WROOM-32)",
+        "framework": "arduino-esp32",
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [
+          {
+            "level": "error",
+            "message": "HTTP/web SUNUCUSU modulu bu sistemde yok; Wi-Fi istemcisi (HTTPClient) kodu sunucu olarak SUNULMAZ."
+          }
+        ],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "HTTP/web SUNUCUSU modulu bu sistemde yok; Wi-Fi istemcisi (HTTPClient) kodu sunucu olarak SUNULMAZ."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Klasik ESP32 kullanıyorum. SSID TEST_WIFI ve şifre TEST_PASSWORD ile Wi-Fi'ye bağlanıp https://example.com adresine HTTP GET isteği yap.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "ESP32 (klasik, ESP32-D0WD/WROOM-32)",
+        "framework": "arduino-esp32",
+        "code": "#include <Arduino.h>\n#include <WiFi.h>\n#include <HTTPClient.h>\n\nconst char* WIFI_SSID = \"TEST_WIFI\";\nconst char* WIFI_PASS = \"TEST_PASSWORD\";\nconst char* TARGET_URL = \"https://example.com\";\nconst unsigned long REQUEST_INTERVAL_MS = 10000;\n\nvoid setup() {\n  Serial.begin(115200);\n  WiFi.begin(WIFI_SSID, WIFI_PASS);\n  while (WiFi.status() != WL_CONNECTED) { delay(500); Serial.print(\".\"); }\n  Serial.println(); Serial.println(\"Wi-Fi bagli.\");\n}\n\nvoid loop() {\n  if (WiFi.status() == WL_CONNECTED) {\n    HTTPClient http;\n    http.begin(TARGET_URL);\n    int code = http.GET();\n    if (code > 0) {\n      Serial.print(\"HTTP kodu: \"); Serial.println(code);\n      String payload = http.getString();\n      Serial.println(payload);\n    } else {\n      Serial.print(\"Istek hatasi: \"); Serial.println(code);\n    }\n    http.end();\n  }\n  delay(REQUEST_INTERVAL_MS);\n}\n",
+        "modules": [
+          "wifi_http_get"
+        ],
+        "libraries": [
+          "HTTPClient",
+          "WiFi"
+        ],
+        "wiring": [
+          "ESP32 dahili Wi-Fi"
+        ],
+        "assumptions": [
+          "Kart/varyant belirtilmedi: KLASIK ESP32 (ESP32-D0WD/WROOM-32) varsayildi. Farkli bir varyant (S2/S3/C3) ise belirtin."
+        ],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "wifi_http_get",
+            "expect": "HTTP kodu ve govde seri monitorde gorunur."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: ESP32 (klasik, ESP32-D0WD/WROOM-32) (ESP32-D0WD), lojik 3.3 V.",
+          "ESP32 3,3V'tur; 5V cikisli sensorler icin gerilim bolucu/seviye cevirici kullanin.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "ESP32'de Wi-Fi HTTP GET isteği yap.",
+      "board_hint": null,
+      "response": {
+        "status": "needs_info",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ancak bazi bilgiler eksik/asSUMED; asagiya bakin.",
+        "board": "ESP32 (klasik, ESP32-D0WD/WROOM-32)",
+        "framework": "arduino-esp32",
+        "code": "#include <Arduino.h>\n#include <WiFi.h>\n#include <HTTPClient.h>\n\nconst char* WIFI_SSID = \"YOUR_SSID\";\nconst char* WIFI_PASS = \"YOUR_PASSWORD\";\nconst char* TARGET_URL = \"http://example.com/\";\nconst unsigned long REQUEST_INTERVAL_MS = 10000;\n\nvoid setup() {\n  Serial.begin(115200);\n  WiFi.begin(WIFI_SSID, WIFI_PASS);\n  while (WiFi.status() != WL_CONNECTED) { delay(500); Serial.print(\".\"); }\n  Serial.println(); Serial.println(\"Wi-Fi bagli.\");\n}\n\nvoid loop() {\n  if (WiFi.status() == WL_CONNECTED) {\n    HTTPClient http;\n    http.begin(TARGET_URL);\n    int code = http.GET();\n    if (code > 0) {\n      Serial.print(\"HTTP kodu: \"); Serial.println(code);\n      String payload = http.getString();\n      Serial.println(payload);\n    } else {\n      Serial.print(\"Istek hatasi: \"); Serial.println(code);\n    }\n    http.end();\n  }\n  delay(REQUEST_INTERVAL_MS);\n}\n",
+        "modules": [
+          "wifi_http_get"
+        ],
+        "libraries": [
+          "HTTPClient",
+          "WiFi"
+        ],
+        "wiring": [
+          "ESP32 dahili Wi-Fi"
+        ],
+        "assumptions": [
+          "Kart/varyant belirtilmedi: KLASIK ESP32 (ESP32-D0WD/WROOM-32) varsayildi. Farkli bir varyant (S2/S3/C3) ise belirtin."
+        ],
+        "guard": [
+          {
+            "level": "warning",
+            "message": "[HTTP GET istegi (ESP32)] Zorunlu parametre eksik: Istek URL'i (url). Placeholder ile uretildi; lutfen degeri belirtin."
+          }
+        ],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "wifi_http_get",
+            "expect": "HTTP kodu ve govde seri monitorde gorunur."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: ESP32 (klasik, ESP32-D0WD/WROOM-32) (ESP32-D0WD), lojik 3.3 V.",
+          "ESP32 3,3V'tur; 5V cikisli sensorler icin gerilim bolucu/seviye cevirici kullanin.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [
+          "HTTP istegi icin hedef URL belirtilmedi.",
+          "Wi-Fi icin SSID belirtilmedi.",
+          "Wi-Fi icin sifre belirtilmedi."
+        ],
+        "notes": [
+          "Eksik yapilandirma: SSID, sifre, URL (placeholder)."
+        ],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno kullanıyorum. Wi-Fi ağına bağlanıp HTTP sunucusu oluştur. Kartı değiştirme.",
+      "board_hint": null,
+      "response": {
+        "status": "error",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Istek desteklenmiyor (kod uretilmedi): Arduino Uno R3 Wi-Fi donanimina sahip DEGILDIR; Wi-Fi/HTTP gorevleri yalnizca ESP32'de desteklenir. Kart degistirilmedi (Arduino Uno R3). HTTP/web SUNUCUSU modulu bu sistemde yok; Wi-Fi istemcisi (HTTPClient) kodu sunucu olarak SUNULMAZ.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [
+          {
+            "level": "error",
+            "message": "Arduino Uno R3 Wi-Fi donanimina sahip DEGILDIR; Wi-Fi/HTTP gorevleri yalnizca ESP32'de desteklenir. Kart degistirilmedi (Arduino Uno R3)."
+          },
+          {
+            "level": "error",
+            "message": "HTTP/web SUNUCUSU modulu bu sistemde yok; Wi-Fi istemcisi (HTTPClient) kodu sunucu olarak SUNULMAZ."
+          }
+        ],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "HTTP/web SUNUCUSU modulu bu sistemde yok; Wi-Fi istemcisi (HTTPClient) kodu sunucu olarak SUNULMAZ."
+        ],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da DHT11 sıcaklık nem sensöründen değer oku.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n#include <DHT.h>\n\nconst int DHT_PIN = 2;\n#define DHT_TYPE DHT11\nDHT _dht(DHT_PIN, DHT_TYPE);\n\nvoid setup() {\n  Serial.begin(9600);\n  _dht.begin();\n}\n\nvoid loop() {\n  float nem = _dht.readHumidity();\n  float sicaklik = _dht.readTemperature();\n  Serial.print(\"Sicaklik: \"); Serial.print(sicaklik);\n  Serial.print(\" C, Nem: \"); Serial.print(nem); Serial.println(\" %\");\n  delay(2000);\n}\n",
+        "modules": [
+          "dht_read"
+        ],
+        "libraries": [
+          "DHT"
+        ],
+        "wiring": [
+          "DHT veri -> 2 (10k pull-up onerilir), VCC/GND"
+        ],
+        "assumptions": [
+          "dht_read: 'dht' pini belirtilmedi -> guvenli varsayilan pin 2 (kullanildi)."
+        ],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "dht_read",
+            "expect": "Sicaklik ve nem seri monitorde gorunur."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "Sensor tipi: DHT11. Ornekleme araligi >= 2000 ms onerilir."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da I2C tara.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n#include <Wire.h>\n\n\n\nvoid setup() {\n  Serial.begin(9600);\n  Wire.begin();\n}\n\nvoid loop() {\n  for (byte addr = 1; addr < 127; addr++) {\n    Wire.beginTransmission(addr);\n    if (Wire.endTransmission() == 0) {\n      Serial.print(\"Bulundu: 0x\"); Serial.println(addr, HEX);\n    }\n  }\n  delay(5000);\n}\n",
+        "modules": [
+          "i2c_scan"
+        ],
+        "libraries": [
+          "Wire"
+        ],
+        "wiring": [
+          "I2C SDA/SCL pinleri karta gore belirlenmistir"
+        ],
+        "assumptions": [],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "i2c_scan",
+            "expect": "Bagli I2C cihaz adresleri listelenir."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "I2C hatlarinda 4,7k pull-up oldugundan emin olun.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da 16x2 I2C LCD'ye 'Merhaba' yaz.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n#include <Wire.h>\n#include <LiquidCrystal_I2C.h>\n\nLiquidCrystal_I2C _lcd(0x27, 16, 2);\n\nvoid setup() {\n  _lcd.init();\n  _lcd.backlight();\n  _lcd.setCursor(0, 0);\n  _lcd.print(\"da 16x2 I2C LCD\");\n}\n\nvoid loop() {\n\n}\n",
+        "modules": [
+          "lcd_i2c_print"
+        ],
+        "libraries": [
+          "LiquidCrystal_I2C",
+          "Wire"
+        ],
+        "wiring": [
+          "LCD SDA -> SDA, SCL -> SCL, VCC -> 5V, GND -> GND"
+        ],
+        "assumptions": [],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "I2C hatlarinda 4,7k pull-up oldugundan emin olun.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da buzzer ile 1000 Hz ton üret.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n\nconst int BUZZER_PIN = 13;\nconst int FREQ = 1000;\n\nvoid setup() {\n  pinMode(BUZZER_PIN, OUTPUT);\n}\n\nvoid loop() {\n  tone(BUZZER_PIN, FREQ);\n  delay(500);\n  noTone(BUZZER_PIN);\n  delay(500);\n}\n",
+        "modules": [
+          "buzzer_tone"
+        ],
+        "libraries": [],
+        "wiring": [
+          "Buzzer + -> 13, - -> GND"
+        ],
+        "assumptions": [
+          "buzzer_tone: 'buzzer' pini belirtilmedi -> guvenli varsayilan pin 13 (kullanildi)."
+        ],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "buzzer_tone",
+            "expect": "Buzzer'dan ton duyulur."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "tone() frekansi: 1000 Hz."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da HC-SR04 ile mesafe ölç.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n\nconst int TRIG_PIN = 13;\nconst int ECHO_PIN = 2;\nconst unsigned long INTERVAL_MS = 200;\n\nvoid setup() {\n  pinMode(TRIG_PIN, OUTPUT);\n  pinMode(ECHO_PIN, INPUT);\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  digitalWrite(TRIG_PIN, LOW); delayMicroseconds(2);\n  digitalWrite(TRIG_PIN, HIGH); delayMicroseconds(10);\n  digitalWrite(TRIG_PIN, LOW);\n  long sure = pulseIn(ECHO_PIN, HIGH);\n  long cm = sure / 58;\n  Serial.print(\"Mesafe: \"); Serial.print(cm); Serial.println(\" cm\");\n  delay(INTERVAL_MS);\n}\n",
+        "modules": [
+          "ultrasonic_distance"
+        ],
+        "libraries": [],
+        "wiring": [
+          "HC-SR04 TRIG -> 13, ECHO -> 2, VCC -> 5V, GND -> GND"
+        ],
+        "assumptions": [
+          "ultrasonic_distance: 'trig' pini belirtilmedi -> guvenli varsayilan pin 13 (kullanildi).",
+          "ultrasonic_distance: 'echo' pini belirtilmedi -> guvenli varsayilan pin 2 (kullanildi)."
+        ],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          },
+          {
+            "type": "logic",
+            "module": "ultrasonic_distance",
+            "expect": "Mesafe seri monitorde cm cinsinden gorunur; engel yaklasinca azalir."
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "HC-SR04 VCC=5V; ECHO'yu ESP32'de bolucu ile 3,3V'a indirin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da 7 ve 8 numaralı pinlerde iki LED'i yak.",
+      "board_hint": null,
+      "response": {
+        "status": "ok",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretildi ve AwuGuard'dan gecti.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": "#include <Arduino.h>\n\nconst int LED1_PIN = 7;\nconst int LED2_PIN = 8;\n\nvoid setup() {\n  pinMode(LED1_PIN, OUTPUT);\n  pinMode(LED2_PIN, OUTPUT);\n  digitalWrite(LED1_PIN, HIGH);\n  digitalWrite(LED2_PIN, HIGH);\n}\n\nvoid loop() {\n\n}\n",
+        "modules": [
+          "two_leds"
+        ],
+        "libraries": [],
+        "wiring": [
+          "LED1 -> 7, LED2 -> 8 (seri direnc ile)"
+        ],
+        "assumptions": [],
+        "guard": [],
+        "tests": [
+          {
+            "type": "build",
+            "tool": "g++ -fsyntax-only (host stub)",
+            "expect": "sozdizimi hatasiz",
+            "note": "gercek AVR/ESP32 derlemesi degil"
+          }
+        ],
+        "hardware_plan": [
+          "Hedef kart: Arduino Uno R3 (ATmega328P), lojik 5.0 V.",
+          "Baglantilari guc KAPALI iken yapin; kutup ve GND ortakligini kontrol edin.",
+          "Yukleme sonrasi seri monitoru dogru hizda acin ve beklenen davranisi gozleyin.",
+          "NOT: Bu adimlar otomatik dogrulanmaz; gercek donanim testi kullaniciya aittir."
+        ],
+        "questions": [],
+        "notes": [
+          "Iki LED surekli yanar."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "LED'i yak.",
+      "board_hint": null,
+      "response": {
+        "status": "needs_info",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Kod uretmeden once hedef karti netlestirmem gerekiyor; pinler ve donanim ozellikleri karta gore degisir.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [
+          "Hedef karti belirtir misiniz? Desteklenen kartlar: Arduino Uno R3, Arduino Mega 2560, klasik ESP32. Pin/GPIO ve donanim gereksinimleri karta gore belirlenir."
+        ],
+        "notes": [],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Bu kodda pin çakışması var mı?",
+      "board_hint": null,
+      "response": {
+        "status": "needs_info",
+        "category": "embedded_coding",
+        "intent": "debug",
+        "message": "Inceleyebilmem icin kodu paylasmaniz gerekiyor.",
+        "board": null,
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [
+          "Hata ayiklanacak kodu ```...``` blogu icinde veya satirlar halinde paylasin.",
+          "Hedef kart nedir? (pin dogrulamasi icin)"
+        ],
+        "notes": [],
+        "classifier_hint": "concept",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da bu kodda pin çakışması var mı?\n```\nvoid setup(){ pinMode(7, OUTPUT); digitalRead(7); }\n```",
+      "board_hint": null,
+      "response": {
+        "status": "info",
+        "category": "embedded_coding",
+        "intent": "debug",
+        "message": "Kod incelendi. Pin cakismasi/gecersiz kullanim BULUNDU.",
+        "board": "Arduino Uno R3",
+        "framework": null,
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [
+          {
+            "level": "error",
+            "message": "Pin 7 OUTPUT tanimli ama okuma icin kullaniliyor."
+          }
+        ],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [],
+        "notes": [
+          "Bu analiz kural tabanlidir; gercek derleme/calistirma dogrulamasi degildir."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    },
+    {
+      "text": "Arduino Uno'da bu kodu incele:\nvoid setup(){ pinMode(7, OUTPUT); pinMode(7, INPUT); }\nvoid loop(){}",
+      "board_hint": null,
+      "response": {
+        "status": "needs_info",
+        "category": "embedded_coding",
+        "intent": "code_generation",
+        "message": "Istekten somut bir modul/eylem cikaramadim.",
+        "board": "Arduino Uno R3",
+        "framework": "arduino",
+        "code": null,
+        "modules": [],
+        "libraries": [],
+        "wiring": [],
+        "assumptions": [],
+        "guard": [],
+        "tests": [],
+        "hardware_plan": [],
+        "questions": [
+          "Hangi modulu nasil kullanmak istiyorsunuz?"
+        ],
+        "notes": [
+          "Istek yapilandirilamadi: hangi modul/eylem oldugu net degil."
+        ],
+        "classifier_hint": "code_generation",
+        "model_name": "AwuGöktürk-Microcontroller:5K"
+      }
+    }
+  ]
+}

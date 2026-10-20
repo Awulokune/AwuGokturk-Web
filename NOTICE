@@ -1,0 +1,15 @@
+AwuGöktürk Web
+Copyright (C) 2026 Awulokune
+
+Bu proje, GPL-3.0 lisansı altında dağıtılan
+https://github.com/Awulokune/AwuGokturk-Android
+projesinin tarayıcı portudur.
+
+Türetilen bileşenler:
+  - Ajan boru hattı ve kural tabanı (runtime/core/*)
+  - AwuGöktürk-Microcontroller:5K model ağırlıkları
+    (runtime/model/classifier5k.json)
+  - Türkçe yanıt şablonları ve bilgi tabanı
+
+Kaynak projenin telif hakkı ve GPL-3.0 koşulları korunmuştur.
+Tam lisans metni: LICENSE

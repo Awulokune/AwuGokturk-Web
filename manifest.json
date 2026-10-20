@@ -1,0 +1,37 @@
+{
+  "id": "./",
+  "name": "AwuGöktürk — Yerel Gömülü Sistem Ajanı",
+  "short_name": "AwuGöktürk",
+  "description": "Tarayıcıda çalışan, sunucusuz gömülü sistem ajanı. Arduino Uno, Mega 2560 ve klasik ESP32 için kural tabanlı kod üretimi; 5K yerel görev sınıflandırıcısı. Mesajlar cihazdan çıkmaz.",
+  "lang": "tr",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#060a11",
+  "theme_color": "#070b12",
+  "categories": ["developer", "education", "productivity", "utilities"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

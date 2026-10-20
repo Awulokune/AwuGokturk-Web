@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1a2a"/>
+      <stop offset="0.55" stop-color="#07121f"/>
+      <stop offset="1" stop-color="#040a12"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0.1" y1="0.1" x2="0.9" y2="0.9">
+      <stop offset="0" stop-color="#99f6e4"/>
+      <stop offset="0.48" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.44" r="0.6">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.3"/>
+      <stop offset="0.65" stop-color="#0ea5e9" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Maskable: tam kare zemin, güvenli bölge içinde işaret -->
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <circle cx="256" cy="248" r="188" fill="url(#halo)"/>
+  <g fill="none" stroke="#5eead4" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round">
+    <path d="M112 206h28l18-18"/>
+    <path d="M400 206h-28l-18-18"/>
+    <path d="M112 318h24l16 16"/>
+    <path d="M400 318h-24l-16 16"/>
+  </g>
+  <g fill="none" stroke="url(#mark)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M258 158L170 356"/>
+    <path d="M258 158l88 198"/>
+    <path d="M197 292h122"/>
+  </g>
+  <g fill="#07121f" stroke="url(#mark)" stroke-width="9">
+    <circle cx="258" cy="158" r="17"/>
+    <circle cx="170" cy="356" r="15"/>
+    <circle cx="346" cy="356" r="15"/>
+    <circle cx="197" cy="292" r="10"/>
+    <circle cx="319" cy="292" r="10"/>
+  </g>
+  <g fill="#c7fff5" filter="url(#glow)">
+    <circle cx="258" cy="158" r="5"/>
+    <circle cx="170" cy="356" r="4"/>
+    <circle cx="346" cy="356" r="4"/>
+  </g>
+  <g stroke="#38bdf8" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round">
+    <path d="M216 402h80"/>
+    <path d="M234 418h44"/>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+{
+  "manifest_version": 1,
+  "model_name": "AwuGöktürk-Microcontroller:5K",
+  "model_version": "5K-1.0.0-web.1",
+  "architecture": "lite-json-v1",
+  "format": "awugokturk-mcu-5k-lite-v1",
+  "tokenizer_version": "char-vocab-103",
+  "vocab_size": 103,
+  "labels": 8,
+  "emb": 8,
+  "hidden": 31,
+  "params": 4893,
+  "artifact": {
+    "name": "classifier5k.json",
+    "url": "classifier5k.json",
+    "size": 99663,
+    "sha256": "7e4346913c2aae4891495b6695d67d29e2eab3e8caa564d77b06e1be7990abc6"
+  },
+  "license": "GPL-3.0",
+  "source": "https://github.com/Awulokune/AwuGokturk-Android",
+  "notes": "Yalnızca görev türü ipucu üreten 4.893 parametreli GRU sınıflandırıcı. Genel amaçlı dil modeli değildir; metin üretmez."
+}
