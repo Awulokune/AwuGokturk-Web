@@ -8,7 +8,7 @@
 import { store, newId } from "./runtime/storage.js";
 import { renderMarkdown, renderPlain, codeBlock } from "./runtime/markdown.js";
 
-const APP_VERSION = "1.0.0-web";
+const APP_VERSION = "1.1.0-web";
 const MAX_INPUT = 12000;
 const CHAT_TIMEOUT_MS = 30000;
 const PREDICT_TIMEOUT_MS = 10000;
@@ -250,7 +250,7 @@ function applyTheme() {
   const theme = resolvedTheme();
   document.documentElement.dataset.theme = theme;
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute("content", theme === "light" ? "#eef2f8" : "#070b12");
+  if (meta) meta.setAttribute("content", theme === "light" ? "#eef2f8" : "#0a1114");
 }
 
 function applyMotion() {
@@ -435,6 +435,8 @@ function loadSession(id) {
   renderChat(true);
   renderHistory();
   closeDrawer();
+  setComposerMode("chat");
+  setMobileTab("sohbet");
   $("input")?.focus({ preventScroll: true });
 }
 
@@ -474,12 +476,13 @@ function renderChat(forceScroll = false) {
   messages.replaceChildren();
   const hasMessages = !!session && session.messages.length > 0;
   if (welcome) welcome.hidden = hasMessages;
+  setText("chatTitle", "AwuGöktürk");
   if (!session) {
-    setText("chatTitle", "AwuGöktürk");
-    setText("chatSubtitle", "Yerel ajan · sunucusuz");
+    setText("chatSubtitle", "Microcontroller:5K · yerel");
+    document.title = "AwuGöktürk — Yerel · Sunucusuz";
   } else {
-    setText("chatTitle", session.title);
-    setText("chatSubtitle", `${session.messages.length} mesaj · yerel · sunucusuz`);
+    setText("chatSubtitle", `${session.messages.length} mesaj · Microcontroller:5K`);
+    document.title = `${session.title} — AwuGöktürk`;
   }
 
   if (session) {
@@ -526,7 +529,7 @@ function renderAssistantMessage(message) {
   const avatar = el("span", "avatar avatar-agent");
   avatar.setAttribute("aria-hidden", "true");
   const img = document.createElement("img");
-  img.src = "./assets/logo.svg";
+  img.src = "./assets/awu-gokturk-logo.jpg";
   img.alt = "";
   avatar.appendChild(img);
 
@@ -946,6 +949,8 @@ async function sendMessage(text) {
 
   const session = ensureSession();
   addUserMessage(session, clean);
+  setMobileTab("sohbet");
+  setComposerMode("chat");
   state.busy = true;
   state.busySessionId = session.id;
   updateComposerState();
@@ -1275,6 +1280,13 @@ function updateNetworkStatus() {
       ? "Ağ var. Uygulama yine de yalnızca aynı kaynaktan model dosyası ister."
       : "Çevrimdışı. Sohbet, kod üretimi ve önbellekteki model çalışır.";
   }
+  const titleStatus = $("titleStatus");
+  if (titleStatus) {
+    titleStatus.className = `title-status ${state.online ? "online" : "offline"}`;
+    titleStatus.title = state.online ? "Çevrimiçi" : "Çevrimdışı";
+  }
+  const hintDot = document.querySelector(".hint-local .dot");
+  if (hintDot) hintDot.className = `dot ${state.online ? "online" : "offline"}`;
   if (!state.online) {
     showNotice("Çevrimdışısınız. Sohbet ve kod üretimi çalışmaya devam eder. " +
       "5K modeli daha önce önbelleğe alınmadıysa ipucu kullanılamaz; harici istek yapılmaz.",
@@ -1457,6 +1469,68 @@ function drawerOpen() {
 }
 
 /* --------------------------------------------------------------------------
+   Mobil gezinme
+   -------------------------------------------------------------------------- */
+
+function setComposerMode(mode) {
+  const input = $("input");
+  if (!input) return;
+  input.placeholder = mode === "kod"
+    ? "Kod isteğinizi yazın… (ör. 7. pin LED 500 ms)"
+    : "Mesajınızı yazın…";
+}
+
+function setMobileTab(tab) {
+  for (const btn of document.querySelectorAll(".mobile-tab")) {
+    const active = btn.getAttribute("data-tab") === tab;
+    btn.classList.toggle("active", active);
+    if (active) btn.setAttribute("aria-current", "page");
+    else btn.removeAttribute("aria-current");
+  }
+}
+
+function handleMobileTab(tab) {
+  if (tab === "sohbet") {
+    setMobileTab("sohbet");
+    setComposerMode("chat");
+    closeDrawer();
+    const session = state.sessions.find((s) => s.id === state.currentId);
+    if (session && session.messages.length) scrollToBottom(true);
+    else {
+      const scroller = $("chatScroll");
+      if (scroller) scroller.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    return;
+  }
+  if (tab === "kod") {
+    setMobileTab("kod");
+    setComposerMode("kod");
+    closeDrawer();
+    const input = $("input");
+    if (input) {
+      input.focus({ preventScroll: true });
+      input.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
+    return;
+  }
+  if (tab === "ayarlar") openSettings();
+}
+
+function startNewChat() {
+  if (state.busy) abortCurrent({ silent: true });
+  state.currentId = null;
+  state.settings.lastSession = null;
+  persistSettings();
+  renderChat(true);
+  renderHistory();
+  closeDrawer();
+  setComposerMode("chat");
+  setMobileTab("sohbet");
+  $("input")?.focus({ preventScroll: true });
+  updateComposerState();
+}
+
+/* --------------------------------------------------------------------------
    Olay bağlama
    -------------------------------------------------------------------------- */
 
@@ -1465,19 +1539,14 @@ function bindEvents() {
   $("sidebarCloseBtn")?.addEventListener("click", closeDrawer);
   $("sidebarOverlay")?.addEventListener("click", closeDrawer);
 
-  $("newChatBtn")?.addEventListener("click", () => {
-    if (state.busy) abortCurrent({ silent: true });
-    state.currentId = null;
-    state.settings.lastSession = null;
-    persistSettings();
-    renderChat(true);
-    renderHistory();
-    closeDrawer();
-    $("input")?.focus({ preventScroll: true });
-    updateComposerState();
-  });
+  $("newChatBtn")?.addEventListener("click", startNewChat);
+  $("topNewChatBtn")?.addEventListener("click", startNewChat);
 
   $("historySearch")?.addEventListener("input", renderHistory);
+
+  for (const btn of document.querySelectorAll(".mobile-tab")) {
+    btn.addEventListener("click", () => handleMobileTab(btn.getAttribute("data-tab")));
+  }
 
   $("composer")?.addEventListener("submit", (ev) => {
     ev.preventDefault();
@@ -1513,6 +1582,8 @@ function bindEvents() {
       if (!prompt) return;
       const field = $("input");
       if (field) { field.value = prompt; autoResize(); updateCharCount(); }
+      setMobileTab("sohbet");
+      setComposerMode("chat");
       sendMessage(prompt);
     });
   }

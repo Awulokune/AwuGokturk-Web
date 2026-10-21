@@ -10,6 +10,7 @@ Türetilen bileşenler:
   - AwuGöktürk-Microcontroller:5K model ağırlıkları
     (runtime/model/classifier5k.json)
   - Türkçe yanıt şablonları ve bilgi tabanı
+  - Resmî AwuGöktürk logosu (assets/awu-gokturk-logo.jpg)
 
 Kaynak projenin telif hakkı ve GPL-3.0 koşulları korunmuştur.
 Tam lisans metni: LICENSE

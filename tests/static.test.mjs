@@ -12,7 +12,8 @@ const modelManifest = readJson("runtime/model/manifest.json");
 
 const REQUIRED = [
   "index.html", "style.css", "app.js", "sw.js", "manifest.json", "LICENSE",
-  "assets/logo.svg", "assets/icon-192.png", "assets/icon-512.png",
+  "assets/awu-gokturk-logo.jpg", "assets/favicon-32.png",
+  "assets/icon-192.png", "assets/icon-512.png",
   "assets/icon-maskable-512.png", "assets/apple-touch-icon.png",
   "runtime/worker.js", "runtime/model-loader.js", "runtime/markdown.js",
   "runtime/storage.js", "runtime/model/manifest.json", "runtime/model/classifier5k.json",
@@ -156,4 +157,33 @@ test("gizlilik iddiaları tutarlı: analitik/çerez/API anahtarı yok", () => {
   assert.doesNotMatch(index, /gtag\(|googletagmanager|analytics|mixpanel|sentry/);
   assert.doesNotMatch(index, /<iframe\b/i);
   assert.match(index, /connect-src 'self'/);
+});
+
+test("resmî AwuGöktürk logosu tutarlı kullanılır", () => {
+  const logo = path.join(ROOT, "assets/awu-gokturk-logo.jpg");
+  const buf = fs.readFileSync(logo);
+  assert.equal(buf.subarray(0, 2).toString("hex"), "ffd8", "logo JPEG değil");
+  assert.match(index, /rel="icon"[^>]+favicon-32\.png/);
+  assert.ok((index.match(/assets\/awu-gokturk-logo\.jpg/g) || []).length >= 3,
+    "logo üst çubuk, karşılama ve diyalog başlıklarında kullanılmalı");
+  assert.match(app, /assets\/awu-gokturk-logo\.jpg/);
+  assert.doesNotMatch(index + app + sw, /assets\/logo\.svg/);
+  assert.match(index, /class="mobile-tabbar"/);
+  assert.match(index, /data-tab="sohbet"/);
+  assert.match(index, /data-tab="kod"/);
+  assert.match(index, /data-tab="ayarlar"/);
+});
+
+test("logo en-boy oranı korunur ve koyu/açık temada çerçevelenir", () => {
+  const css = readText("style.css");
+  for (const selector of [".brand-logo", ".topbar-logo", ".welcome-logo", ".avatar img"]) {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    assert.match(css, new RegExp(escaped + "[^}]*object-fit: cover"));
+  }
+  assert.match(css, /html\[data-theme="light"\] \.topbar/);
+  for (const tag of index.matchAll(/<img\b[^>]*>/g)) {
+    const w = tag[0].match(/width="(\d+)"/);
+    const h = tag[0].match(/height="(\d+)"/);
+    if (w && h) assert.equal(w[1], h[1], "logo kare olmayan boyutlandırılmış: " + tag[0]);
+  }
 });

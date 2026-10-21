@@ -162,6 +162,22 @@ async function main() {
     assert.equal(await page.textContent("#storageBackend"), "IndexedDB (yerel)");
     assert.ok(await page.evaluate(() => !!navigator.serviceWorker.controller),
       "Service Worker denetleyicisi yok");
+    const unnamedButtons = await page.evaluate(() => [...document.querySelectorAll("button")]
+      .filter((btn) => !(btn.textContent.trim() || btn.getAttribute("aria-label") || btn.getAttribute("title")))
+      .map((btn) => btn.id || btn.className));
+    assert.deepEqual(unnamedButtons, [], "erişilebilir adı olmayan düğmeler");
+    assert.equal(await page.getAttribute('[data-tab="sohbet"]', "aria-current"), "page");
+
+    // Resmî logo gerçekten yüklendi
+    const logo = await page.$eval(".topbar-logo", (img) => ({
+      src: img.getAttribute("src"), w: img.naturalWidth, h: img.naturalHeight,
+    }));
+    assert.match(logo.src, /assets\/awu-gokturk-logo\.jpg$/);
+    assert.ok(logo.w > 0 && logo.h > 0, "üst çubuk logosu yüklenmedi");
+    const welcomeLogo = await page.$eval(".welcome-logo", (img) => img.naturalWidth);
+    assert.ok(welcomeLogo > 0, "karşılama logosu yüklenmedi");
+    assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector(".mobile-tabbar")).display),
+      "none", "masaüstünde alt gezinme gizli olmalı");
 
     // Gerçek 5K çıkarımı
     await page.click("#modelChip");
@@ -187,6 +203,13 @@ async function main() {
     assert.match(await page.textContent(".build-line"), /Derleme değil/);
     assert.ok((await page.textContent(".badge-model")).includes("5K ipucu"));
     assert.equal(await page.locator(".history-item").count(), 1);
+    const bubbleStyle = await page.$eval(".message.user .bubble", (node) => {
+      const style = getComputedStyle(node);
+      return { bg: style.backgroundImage, color: style.color, radius: style.borderRadius };
+    });
+    assert.match(bubbleStyle.bg, /linear-gradient/);
+    assert.match(bubbleStyle.radius, /22px/);
+    assert.ok(bubbleStyle.color !== "rgb(0, 0, 0)", "kullanıcı balonu okunaksız");
 
     // Kalıcılık + önbellekten model
     await page.reload({ waitUntil: "networkidle" });
@@ -203,10 +226,38 @@ async function main() {
       "mobil yatay taşma var");
     assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector("#menuBtn")).display),
       "grid");
+    assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector(".mobile-tabbar")).display),
+      "grid", "mobil alt gezinme görünmüyor");
+
+    // Android alt sekmeleri: Kod composer'a odaklanır, Ayarlar diyaloğu açar.
+    await page.click('[data-tab="kod"]');
+    assert.match(await page.getAttribute("#input", "placeholder"), /Kod isteğinizi yazın/);
+    assert.equal(await page.getAttribute('[data-tab="kod"]', "aria-current"), "page");
+    await page.click('[data-tab="sohbet"]');
+    assert.equal(await page.getAttribute('[data-tab="sohbet"]', "aria-current"), "page");
+    assert.equal(await page.getAttribute("#input", "placeholder"), "Mesajınızı yazın…");
+    await page.click('[data-tab="ayarlar"]');
+    assert.ok(await page.evaluate(() => document.querySelector("#settingsDialog").open));
+    await page.keyboard.press("Escape");
+    assert.ok(!(await page.evaluate(() => document.querySelector("#settingsDialog").open)));
+
     await page.click("#menuBtn");
     assert.ok(await page.evaluate(() => document.querySelector("#sidebar").classList.contains("open")));
+    assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector("#sidebar")).borderTopLeftRadius),
+      "24px", "mobil geçmiş alt sayfa olmalı");
     await page.keyboard.press("Escape");
     assert.ok(!(await page.evaluate(() => document.querySelector("#sidebar").classList.contains("open"))));
+
+    // Tablet düzeni: alt gezinme görünür, yatay taşma yok, logo yüklü.
+    await page.setViewportSize({ width: 834, height: 1112 });
+    await page.waitForTimeout(250);
+    assert.ok(await page.evaluate(() => document.body.scrollWidth <= window.innerWidth),
+      "tablet yatay taşma var");
+    assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector(".mobile-tabbar")).display),
+      "grid", "tablet alt gezinmesi görünmüyor");
+    assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector("#sidebar")).position),
+      "fixed", "tablet geçmiş paneli sabit değil");
+    assert.ok(await page.$eval(".topbar-logo", (img) => img.naturalWidth > 0));
 
     // Kullanıcı metni HTML olarak çalıştırılmaz
     await page.fill("#input", '<img src=x onerror="window.__xss=1"><script>window.__xss=2</script>');
@@ -243,6 +294,8 @@ async function main() {
     await page.reload({ waitUntil: "domcontentloaded" });
     await ready();
     assert.equal(await page.textContent("#netChipText"), "Çevrimdışı");
+    assert.ok(await page.$eval(".topbar-logo", (img) => img.naturalWidth > 0),
+      "logo çevrimdışı önbellekten yüklenmedi");
     assert.match(await page.textContent("#modelStatusDetail"), /önbellekten/);
     await page.fill("#input", "ESP32'de GPIO 18'deki LED'i 1 saniye aralıkla yakıp söndür.");
     await page.press("#input", "Enter");
@@ -254,7 +307,7 @@ async function main() {
 
     assert.deepEqual(external, [], "harici ağ isteği: " + external.join(", "));
     assert.deepEqual(errors, [], "tarayıcı hataları: " + errors.join("\n"));
-    console.log("TARAYICI TESTİ GEÇTİ: alt yol, gerçek model, sohbet, kalıcılık, mobil, XSS, dışa aktarma, CSP, çevrimdışı.");
+    console.log("TARAYICI TESTİ GEÇTİ: Android arayüzü, resmî logo, alt yol, gerçek model, sohbet, kalıcılık, mobil/tablet, XSS, dışa aktarma, CSP, çevrimdışı.");
   } finally {
     await context.setOffline(false).catch(() => {});
     await browser.close();

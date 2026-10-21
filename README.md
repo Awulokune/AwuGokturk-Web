@@ -72,7 +72,7 @@ style.css             koyu/açık tema, masaüstü + mobil çekmece, erişilebil
 app.js                arayüz denetleyicisi; ağ API'si kullanmaz
 sw.js                 Service Worker: uygulama kabuğu + çevrimdışı
 manifest.json         PWA manifesti
-assets/               logo ve PNG ikonlar
+assets/               resmî awu-gokturk-logo.jpg, favicon ve PNG ikonlar
 
 runtime/
   worker.js           Web Worker protokolü (init/message/predict/reload-model/clear-model)
@@ -115,8 +115,13 @@ Kullanıcı metni
 
 ## 4. Arayüz özellikleri
 
-- Modern, koyu varsayılan, açık tema ve sistem teması.
-- Masaüstünde kalıcı kenar çubuğu; mobilde erişilebilir çekmece.
+- Android uygulamasının koyu turkuaz/mavi görsel kimliği; koyu varsayılan, açık tema ve sistem teması.
+- Resmî AwuGöktürk logosu (`assets/awu-gokturk-logo.jpg`, 1536×1536, orijinal
+  en-boy oranı) üst çubukta, karşılama ekranında, asistan avatarında,
+  ayarlar/model başlıklarında ve favicon/PWA ikonlarında kullanılır.
+- Masaüstünde kalıcı kenar çubuğu; tablet/telefonda alt sayfa açılan geçmiş paneli.
+- Telefonda Android’deki gibi **Sohbet · Kod · Ayarlar** alt gezinmesi. “Kod” sekmesi
+  kod isteği için giriş alanına odaklanır; ayrı ve sahte bir kod ekranı üretmez.
 - Sohbet oluşturma, arama, tek tek silme, tümünü silme, JSON dışa aktarma.
 - Kalıcı sohbet geçmişi (IndexedDB; yedek olarak localStorage).
 - Güvenli Markdown: başlık, liste, vurgu, bağlantı, kod; **ham HTML yok**.
@@ -126,6 +131,23 @@ Kullanıcı metni
 - Hareketi azaltma, klavye kısayolları (`Enter`, `Shift+Enter`, `Ctrl/Cmd+Shift+N`),
   görünür odak halkaları, `aria-live` sohbet günlüğü, atlama bağlantısı.
 - PWA kurulabilirlik, Service Worker güncelleme bildirimi ve çevrimdışı açılış.
+
+### Android tasarımından uyarlananlar
+
+Tasarım, `Awulokune/AwuGokturk-Android/android/screenshots` altındaki 14 ekran
+görüntüsü incelenerek uyarlandı. Kaynak ekranlar: boş sohbet, kodlu sohbet, geçmiş,
+kod üretimi (boş/sonuçlu), ayarlar, ana ekran, uygulama çekmecesi, çevrimdışı,
+model güncelleme ve model kontrol durumları.
+
+- `#0a1114` zemin, `#111c21` üst çubuk, `#17272e` kartlar, `#2fdbc6` turkuaz,
+  `#47a8f4` mavi ve logodaki `#db4b26` turuncu.
+- Logolu üst çubuk, model durumu, + yeni sohbet ve geçmiş düğmeleri.
+- Karşılama ekranında büyük yuvarlatılmış logo, “Merhaba, ben AwuGöktürk.” başlığı
+  ve Android’deki gibi tam genişlikte örnek istem satırları.
+- Sağa yaslı turkuaz→mavi kullanıcı balonu; solda logo avatarı ve koyu asistan kartı.
+- Yuvarlak gönder düğmeli, kapsül biçimli mesaj alanı; “Yerel · yanıtlar cihazda üretilir”.
+- Mobilde alt sekme çubuğu ve alttan açılan geçmiş paneli; ayarlar kartları.
+- Masaüstünde aynı kimlik korunur, ancak sohbet odaklı geniş düzen kullanılır.
 
 ---
 
@@ -168,7 +190,8 @@ Kullanıcı metni
 
 ### Aktarılmayan / farklı olan
 
-- Android arayüzü ve Android'e özgü paylaşım/depolama: web arayüzü sıfırdan yazıldı.
+- Android’in görsel dili web’e uyarlandı; Android’e özgü paylaşım, bildirim, dosya
+  sistemi ve APK entegrasyonları taşınmadı. Web arayüzü bağımsız HTML/CSS/JS olarak kalır.
 - Python tarafındaki gerçek `g++`/AVR derleme denemesi: tarayıcıda araç zinciri yok.
   Yerine **yalnızca yapısal ön kontrol** (`js-static`) kondu. Bu bir derleme değildir.
 - Karta yükleme, seri port, fiziksel donanım testi: tarayıcıdan yapılamaz.
@@ -203,7 +226,7 @@ Node 20+ (testler için):
 
 ```bash
 npm install
-npm test              # 50 Node testi: ajan, parite, model, Markdown, statik güvenlik
+npm test              # 52 Node testi: ajan, parite, model, Markdown, logo, statik güvenlik
 npm run test:parity   # Python↔JS paritesi (56 senaryo)
 npm run test:browser  # gerçek Chromium duman testi (playwright-core + Chromium gerekir)
 ```
@@ -259,21 +282,25 @@ Bu depoda çalıştırılan testler:
 
 | Test | Sonuç |
 |---|---|
-| `node --test tests/*.test.mjs` | **50/50 geçti** |
+| `node --test tests/*.test.mjs` | **52/52 geçti** |
 | Python↔JS paritesi | **56 senaryo + 6 sınıflandırıcı örneği**, `build` alanı hariç birebir |
 | Model doğrulama | 99.663 bayt, SHA-256 eşleşiyor, 4.893 parametre |
 | Chromium duman testi | **Geçti** (aşağıdaki başlıklar) |
 | Harici `fetch` denemesi | CSP tarafından **engellendi** |
 | Çevrimdışı yeniden yükleme | Service Worker + model önbelleği ile **geçti** |
 | Alt yol (`/AwuGokturk-Web/`) | **Geçti** |
-| Mobil 390×844 | Yatay taşma yok, çekmece ve ayarlar çalışıyor |
+| Mobil 390×844 | Yatay taşma yok, alt sekmeler, çekmece ve ayarlar çalışıyor |
+| Tablet 834×1112 | Yatay taşma yok, alt gezinme ve logo yüklü |
+| Koyu/açık tema | Logo, metin ve kart kontrastı görsel olarak kontrol edildi |
 | XSS | Kullanıcı metni HTML olarak çalışmadı |
 | Dışa aktarma | Geçerli JSON indirildi |
 
 Chromium testi şunları gerçekten yapar: alt yoldan yükleme, model indirme + SHA-256,
-“Model testi”nde gerçek 5K çıkarımı, LED kodu üretimi, sohbetin yeniden yüklemede
-korunması, modelin önbellekten doğrulanması, mobil düzen/çekmece, XSS denemesi,
-JSON dışa aktarma, harici ağ engeli, çevrimdışı yeniden yükleme ve çevrimdışı mesaj.
+resmî logonun yüklenmesi, Android alt sekmeleri, “Model testi”nde gerçek 5K çıkarımı,
+LED kodu üretimi, sohbetin yeniden yüklemede korunması, modelin önbellekten
+doğrulanması, mobil/tablet düzen, geçmiş alt sayfası, erişilebilir düğme adları,
+XSS denemesi, JSON dışa aktarma, harici ağ engeli, çevrimdışı yeniden yükleme
+ve çevrimdışı mesaj.
 
 Test ortamı: Linux, Node.js 22.14.0, Chromium 1248 (headless).
 

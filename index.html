@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#070b12">
+  <meta name="theme-color" content="#0a1114">
   <meta name="description" content="AwuGöktürk — tarayıcıda çalışan, sunucusuz, yerel gömülü sistem yapay zekâ platformu. Mesajlarınız cihazdan çıkmaz.">
   <meta name="color-scheme" content="dark light">
   <meta name="application-name" content="AwuGöktürk">
@@ -19,8 +19,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
   <title>AwuGöktürk — Yerel · Sunucusuz</title>
   <link rel="manifest" href="./manifest.json">
-  <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
-  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -28,11 +28,12 @@
 
   <div class="app-shell" id="appShell">
     <aside class="sidebar" id="sidebar" aria-label="Sohbet geçmişi ve menü">
+      <div class="sheet-handle" aria-hidden="true"></div>
       <div class="brand">
-        <img class="brand-logo" src="./assets/logo.svg" alt="" width="44" height="44">
+        <img class="brand-logo" src="./assets/awu-gokturk-logo.jpg" alt="" width="46" height="46">
         <div class="brand-text">
           <span class="brand-name">AwuGöktürk</span>
-          <span class="brand-slogan">NO SAY CAVAS</span>
+          <span class="brand-slogan">Microcontroller:5K</span>
         </div>
         <button class="icon-btn sidebar-close" id="sidebarCloseBtn" type="button" aria-label="Kenar çubuğunu kapat">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -43,6 +44,11 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
         <span>Yeni sohbet</span>
       </button>
+
+      <div class="history-sheet-head">
+        <h2>Sohbet geçmişi</h2>
+        <p>Geçmiş yalnızca bu cihazda saklanır; dışarı gönderilmez.</p>
+      </div>
 
       <div class="history-head">
         <label class="visually-hidden" for="historySearch">Sohbetlerde ara</label>
@@ -76,13 +82,15 @@
 
     <main class="main" id="main">
       <header class="topbar">
-        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Menüyü aç" aria-controls="sidebar" aria-expanded="false">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        </button>
-
-        <div class="top-title">
-          <h1 id="chatTitle">AwuGöktürk</h1>
-          <p id="chatSubtitle">Yerel ajan · sunucusuz</p>
+        <div class="top-brand">
+          <img class="topbar-logo" src="./assets/awu-gokturk-logo.jpg" alt="" width="40" height="40">
+          <div class="top-title">
+            <div class="top-title-line">
+              <h1 id="chatTitle">AwuGöktürk</h1>
+              <span class="title-status online" id="titleStatus" aria-hidden="true"></span>
+            </div>
+            <p id="chatSubtitle">Microcontroller:5K · yerel</p>
+          </div>
         </div>
 
         <div class="top-actions">
@@ -94,7 +102,13 @@
             <span class="dot" id="modelDot" aria-hidden="true"></span>
             <span id="modelChipText">Model yükleniyor…</span>
           </button>
-          <button class="icon-btn" id="settingsBtn" type="button" aria-label="Ayarları aç" aria-haspopup="dialog">
+          <button class="icon-btn top-action-btn" id="topNewChatBtn" type="button" aria-label="Yeni sohbet">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Sohbet geçmişini aç" aria-controls="sidebar" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/><path d="M12 7v5l3 2"/></svg>
+          </button>
+          <button class="icon-btn top-action-btn" id="settingsBtn" type="button" aria-label="Ayarları aç" aria-haspopup="dialog">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg>
           </button>
         </div>
@@ -113,35 +127,33 @@
 
       <section class="chat-scroll" id="chatScroll" aria-label="Sohbet">
         <div class="welcome" id="welcome">
-          <img class="welcome-logo" src="./assets/logo.svg" alt="AwuGöktürk logosu" width="88" height="88">
-          <p class="eyebrow">SUNUCUSUZ · YEREL · GİZLİ</p>
-          <h2>Gömülü sistemler için<br><span>yerel yapay zekâ.</span></h2>
+          <img class="welcome-logo" src="./assets/awu-gokturk-logo.jpg" alt="AwuGöktürk logosu" width="112" height="112">
+          <p class="eyebrow">YEREL · SUNUCUSUZ · GİZLİ</p>
+          <h2>Merhaba, ben <span>AwuGöktürk.</span></h2>
           <p class="welcome-lead">
-            Arduino Uno, Mega 2560 ve klasik ESP32 için kod üretir, kodu denetler,
-            eksik bilgide sorar ve emin olmadığında uydurmaz.
-            <strong>Mesajlarınız bu cihazdan çıkmaz.</strong>
+            Arduino ve gömülü sistem projelerinde yardımcı olabilirim. Arduino Uno,
+            Mega 2560 ve klasik ESP32 için kod üretir, kodu denetler ve emin olmadığında uydurmaz.
           </p>
-          <div class="hero-badges">
-            <span>5K yerel sınıflandırıcı</span>
-            <span>Kural tabanlı ajan</span>
-            <span>Çevrimdışı PWA</span>
-          </div>
+          <p class="welcome-privacy">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9.5 12l2 2 3.5-4"/></svg>
+            Mesajlarınız bu cihazdan çıkmaz.
+          </p>
           <div class="suggestions" aria-label="Örnek istemler">
             <button type="button" class="suggestion" data-prompt="Arduino Uno'da 7. pindeki LED'i 500 ms aralıkla yakıp söndür.">
-              <span class="sugg-icon" aria-hidden="true">01</span>
-              <span><strong>LED yakıp söndür</strong><small>Arduino Uno · 7. pin · 500 ms</small></span>
+              <span class="sugg-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              <span class="sugg-text">Arduino Uno'da LED yak.</span>
             </button>
             <button type="button" class="suggestion" data-prompt="ESP32'de GPIO 18'deki LED'i 1 saniye aralıkla yakıp söndür.">
-              <span class="sugg-icon" aria-hidden="true">02</span>
-              <span><strong>ESP32 blink</strong><small>GPIO 18 · 1 saniye</small></span>
+              <span class="sugg-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              <span class="sugg-text">ESP32 ile blink uygulaması oluştur.</span>
             </button>
             <button type="button" class="suggestion" data-prompt="Arduino Uno'da bu kodda pin çakışması var mı?&#10;```&#10;void setup(){ pinMode(7, OUTPUT); digitalRead(7); }&#10;```">
-              <span class="sugg-icon" aria-hidden="true">03</span>
-              <span><strong>Kodu denetle</strong><small>Pin çakışması · AwuGuard</small></span>
+              <span class="sugg-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              <span class="sugg-text">C++ kodumu denetle.</span>
             </button>
-            <button type="button" class="suggestion" data-prompt="CPU nedir, nasıl çalışır?">
-              <span class="sugg-icon" aria-hidden="true">04</span>
-              <span><strong>Kavram açıkla</strong><small>CPU · yerel bilgi kaynağı</small></span>
+            <button type="button" class="suggestion" data-prompt="Arduino Uno'da 14. pin ne işe yarar?">
+              <span class="sugg-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              <span class="sugg-text">Pin 14'ün Uno'da ne olduğunu açıkla.</span>
             </button>
           </div>
           <p class="welcome-foot">
@@ -154,7 +166,7 @@
         <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
 
         <div class="typing" id="typing" hidden aria-live="polite">
-          <span class="avatar avatar-agent" aria-hidden="true"><img src="./assets/logo.svg" alt=""></span>
+          <span class="avatar avatar-agent" aria-hidden="true"><img src="./assets/awu-gokturk-logo.jpg" alt=""></span>
           <span class="typing-bubble"><i></i><i></i><i></i><span class="visually-hidden">Yanıt hazırlanıyor</span></span>
         </div>
 
@@ -170,7 +182,7 @@
           <div class="composer-box" id="composerBox">
             <label class="visually-hidden" for="input">Mesajınız</label>
             <textarea id="input" name="message" rows="1" maxlength="12000"
-              placeholder="Arduino, ESP32 veya kod hakkında sorun…"
+              placeholder="Mesajınızı yazın…"
               enterkeyhint="send" spellcheck="true"></textarea>
             <div class="composer-row">
               <div class="composer-left">
@@ -197,19 +209,38 @@
             </div>
           </div>
           <p class="composer-hint">
+            <span class="hint-local"><span class="dot online" aria-hidden="true"></span> Yerel · yanıtlar cihazda üretilir</span>
             <span><kbd>Enter</kbd> gönder · <kbd>Shift</kbd>+<kbd>Enter</kbd> yeni satır</span>
             <span class="privacy-inline"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg> Mesajlar harici sunucuya gönderilmez</span>
           </p>
         </form>
       </footer>
+
+      <nav class="mobile-tabbar" id="mobileTabbar" aria-label="Mobil ana gezinme">
+        <button type="button" class="mobile-tab active" data-tab="sohbet" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5z"/><path d="M8 9h8M8 12h5"/></svg>
+          <span>Sohbet</span>
+        </button>
+        <button type="button" class="mobile-tab" data-tab="kod">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg>
+          <span>Kod</span>
+        </button>
+        <button type="button" class="mobile-tab" data-tab="ayarlar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1-1.5 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg>
+          <span>Ayarlar</span>
+        </button>
+      </nav>
     </main>
   </div>
 
   <dialog class="dialog settings-dialog" id="settingsDialog" aria-labelledby="settingsTitle">
     <div class="dialog-head">
-      <div>
-        <h2 id="settingsTitle">Ayarlar</h2>
-        <p>Yerel · çevrimdışı · gizli</p>
+      <div class="dialog-title-wrap">
+        <img class="dialog-brand" src="./assets/awu-gokturk-logo.jpg" alt="" width="38" height="38">
+        <div>
+          <h2 id="settingsTitle">Ayarlar</h2>
+          <p>Yerel · çevrimdışı · gizli</p>
+        </div>
       </div>
       <button type="button" class="icon-btn dialog-close" data-close="settingsDialog" aria-label="Ayarları kapat">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -284,9 +315,12 @@
 
   <dialog class="dialog model-dialog" id="modelDialog" aria-labelledby="modelTitle">
     <div class="dialog-head">
-      <div>
-        <h2 id="modelTitle">Yerel model</h2>
-        <p>5K görev sınıflandırıcısı · CPU · Web Worker</p>
+      <div class="dialog-title-wrap">
+        <img class="dialog-brand" src="./assets/awu-gokturk-logo.jpg" alt="" width="38" height="38">
+        <div>
+          <h2 id="modelTitle">Yerel model</h2>
+          <p>5K görev sınıflandırıcısı · CPU · Web Worker</p>
+        </div>
       </div>
       <button type="button" class="icon-btn dialog-close" data-close="modelDialog" aria-label="Model penceresini kapat">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>

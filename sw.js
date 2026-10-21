@@ -8,7 +8,7 @@
  * alt yolu dahil) istekleri ele alınır.
  */
 
-const SHELL_CACHE = "awu-web-1.0.0-r1";
+const SHELL_CACHE = "awu-web-1.1.0-r1";
 const CACHE_PREFIX = "awu-web-";
 const MODEL_FILE = "classifier5k.json";
 
@@ -17,7 +17,8 @@ const SHELL = [
   "./style.css",
   "./app.js",
   "./manifest.json",
-  "./assets/logo.svg",
+  "./assets/awu-gokturk-logo.jpg",
+  "./assets/favicon-32.png",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
   "./assets/icon-maskable-512.png",

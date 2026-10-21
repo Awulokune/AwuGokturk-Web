@@ -1613,3 +1613,711 @@ html[data-motion="reduce"] *::after {
 .details-body pre code { font-family: inherit; }
 .details-body p { margin: 7px 0; }
 .details-body strong { color: var(--text); }
+
+/* ==========================================================================
+   AwuGöktürk — Android ekran görüntülerinden uyarlanan görsel kimlik
+   Kaynak: AwuGokturk-Android/android/screenshots (01–14)
+   Renkler: #0a1114 zemin, #111c21 üst çubuk, #17272e kart,
+   #2fdbc6 turkuaz, #47a8f4 mavi, #db4b26 logodaki turuncu.
+   ========================================================================== */
+
+:root {
+  --bg: #0a1114;
+  --bg-soft: #0e1a1f;
+  --bg-deep: #070d10;
+  --panel: rgba(23, 39, 46, 0.88);
+  --panel-solid: #111c21;
+  --panel-2: #17272e;
+  --line: rgba(150, 180, 190, 0.13);
+  --line-strong: rgba(150, 180, 190, 0.24);
+  --text: #eef6f4;
+  --text-soft: #c8d6d5;
+  --muted: #94a7aa;
+  --faint: #687b7f;
+  --accent: #2fdbc6;
+  --accent-strong: #25c9b5;
+  --accent-ink: #032925;
+  --accent-2: #47a8f4;
+  --ok: #2fdbc6;
+  --warn: #f4b942;
+  --danger: #fb7185;
+  --info: #7cc4ff;
+  --user-bubble: linear-gradient(100deg, #2fdbc6 0%, #42b8df 55%, #47a8f4 100%);
+  --agent-bubble: #111c21;
+  --shadow: 0 30px 80px -34px rgba(0, 0, 0, 0.9);
+  --shadow-soft: 0 14px 34px -22px rgba(0, 0, 0, 0.9);
+  --radius: 20px;
+  --radius-sm: 14px;
+  --sidebar-w: 300px;
+  --max-chat: 920px;
+  --topbar-h: 72px;
+}
+
+html[data-theme="light"] {
+  --bg: #edf3f2;
+  --bg-soft: #f7faf9;
+  --bg-deep: #e3ecea;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-solid: #ffffff;
+  --panel-2: #f0f6f5;
+  --line: rgba(16, 50, 54, 0.12);
+  --line-strong: rgba(16, 50, 54, 0.22);
+  --text: #102326;
+  --text-soft: #294044;
+  --muted: #576f73;
+  --faint: #738a8d;
+  --accent: #0c7d70;
+  --accent-strong: #086b60;
+  --accent-ink: #f0fffc;
+  --accent-2: #1668b3;
+  --ok: #087f70;
+  --warn: #a05c05;
+  --danger: #be123c;
+  --info: #1d64a8;
+  --agent-bubble: #ffffff;
+  --shadow: 0 30px 80px -38px rgba(16, 35, 38, 0.35);
+  --shadow-soft: 0 14px 34px -24px rgba(16, 35, 38, 0.28);
+}
+
+body,
+html[data-theme="light"] body {
+  background:
+    radial-gradient(900px 600px at 90% -20%, rgba(47, 219, 198, 0.055), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+}
+
+html[data-theme="light"] body {
+  background:
+    radial-gradient(900px 600px at 90% -20%, rgba(12, 125, 112, 0.07), transparent 60%),
+    linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+}
+
+::selection { background: rgba(47, 219, 198, 0.28); }
+
+/* Kenar çubuğu / gezinme */
+
+.sidebar {
+  gap: 12px;
+  padding: 18px 16px 16px;
+  background: #0c161b;
+  border-right: 1px solid var(--line);
+}
+
+html[data-theme="light"] .sidebar { background: #f8fbfa; }
+
+.sheet-handle { display: none; }
+
+.brand {
+  gap: 12px;
+  padding: 2px 2px 14px;
+}
+
+.brand-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: none;
+  border: 1px solid rgba(219, 75, 38, 0.5);
+}
+
+.brand-name { font-size: 17px; font-weight: 750; }
+.brand-slogan {
+  font-family: var(--font);
+  font-size: 10.5px;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  opacity: 1;
+}
+
+.new-chat {
+  justify-content: flex-start;
+  padding: 12px 14px;
+  border: 1px solid rgba(47, 219, 198, 0.18);
+  border-radius: 14px;
+  background: #12242a;
+  color: var(--accent);
+  font-size: 13px;
+}
+.new-chat:hover { background: #173039; border-color: rgba(47, 219, 198, 0.36); }
+html[data-theme="light"] .new-chat { background: #e5f4f1; }
+
+.history-sheet-head { padding: 2px 4px 0; }
+.history-sheet-head h2 { margin: 0; font-size: 15px; letter-spacing: -0.01em; }
+.history-sheet-head p { margin: 2px 0 0; color: var(--faint); font-size: 10.5px; line-height: 1.45; }
+
+.history-search {
+  padding: 10px 13px;
+  border-radius: 12px;
+  background: #0a1418;
+  border-color: var(--line);
+  font-size: 12.5px;
+}
+html[data-theme="light"] .history-search { background: #eef5f3; }
+
+.history-item { border-radius: 12px; }
+.history-item.active {
+  background: rgba(47, 219, 198, 0.09);
+  border-color: rgba(47, 219, 198, 0.24);
+}
+.history-title { font-size: 12.5px; }
+.history-time { font-size: 10px; }
+
+.sidebar-foot { gap: 8px; }
+.privacy-note {
+  border-radius: 12px;
+  background: rgba(47, 219, 198, 0.055);
+  color: #8de8d9;
+  font-size: 10px;
+}
+html[data-theme="light"] .privacy-note { color: #0b6c61; }
+.side-btn { border-radius: 11px; }
+
+/* Üst çubuk */
+
+.topbar {
+  min-height: var(--topbar-h);
+  gap: 10px;
+  padding: 10px clamp(14px, 2.4vw, 24px);
+  background: #111c21;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: none;
+}
+html[data-theme="light"] .topbar { background: #ffffff; }
+
+.top-brand { display: flex; align-items: center; gap: 11px; min-width: 0; flex: 1; }
+.topbar-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid rgba(219, 75, 38, 0.48);
+  flex: none;
+}
+.top-title { min-width: 0; flex: 0 1 auto; }
+.top-title-line { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.top-title h1 { font-size: 16px; font-weight: 740; }
+.top-title p { font-size: 10.5px; color: var(--muted); }
+
+.title-status,
+.hint-local .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--faint);
+}
+.title-status.online,
+.hint-local .dot.online {
+  background: var(--ok);
+  box-shadow: 0 0 0 3px rgba(47, 219, 198, 0.12);
+}
+.title-status.offline,
+.hint-local .dot.offline {
+  background: var(--danger);
+  box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.12);
+}
+
+.top-actions { gap: 4px; }
+.net-chip,
+.model-chip {
+  height: 34px;
+  border-radius: 999px;
+  background: #0c171c;
+  border-color: var(--line);
+  color: var(--muted);
+  font-size: 11px;
+}
+html[data-theme="light"] .net-chip,
+html[data-theme="light"] .model-chip { background: #f2f7f6; }
+.model-chip:hover { border-color: rgba(47, 219, 198, 0.35); color: var(--text); }
+.model-chip .dot.ok { background: var(--ok); }
+
+.icon-btn { border-radius: 12px; }
+.top-action-btn { color: var(--accent); }
+.top-action-btn:hover { color: var(--accent); background: rgba(47, 219, 198, 0.08); border-color: rgba(47, 219, 198, 0.18); }
+.menu-btn { color: var(--accent); }
+
+/* Karşılama — Android 01_sohbet_bos ekranı */
+
+.chat-scroll { padding: clamp(18px, 3vw, 30px) clamp(14px, 3vw, 30px) 22px; }
+
+.welcome {
+  max-width: 800px;
+  padding: clamp(8px, 2.6vh, 26px) 4px 20px;
+}
+
+.welcome-logo {
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 20px;
+  border-radius: 30px;
+  object-fit: cover;
+  border: 1px solid rgba(219, 75, 38, 0.38);
+  box-shadow: none;
+}
+
+.eyebrow {
+  margin-bottom: 9px;
+  color: var(--faint);
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+}
+
+.welcome h2 {
+  margin-bottom: 10px;
+  font-size: clamp(30px, 3.5vw, 38px);
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+  font-weight: 760;
+}
+.welcome h2 span {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: var(--text);
+  -webkit-text-fill-color: currentColor;
+}
+
+.welcome-lead {
+  max-width: 570px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.welcome-privacy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto 22px;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+.welcome-privacy svg { width: 15px; height: 15px; color: var(--accent); }
+
+.suggestions {
+  grid-template-columns: 1fr;
+  gap: 9px;
+  max-width: 720px;
+  margin-bottom: 20px;
+}
+
+.suggestion {
+  min-height: 58px;
+  gap: 14px;
+  padding: 15px 18px;
+  border: 1px solid #213840;
+  border-radius: 16px;
+  background: #15242b;
+  transition: background 0.16s, border-color 0.16s;
+}
+html[data-theme="light"] .suggestion { background: #ffffff; border-color: #d9e6e3; }
+.suggestion:hover {
+  transform: none;
+  border-color: rgba(47, 219, 198, 0.42);
+  background: #182d35;
+}
+html[data-theme="light"] .suggestion:hover { background: #f2fbf9; }
+
+.sugg-arrow { display: grid; place-items: center; width: 22px; height: 22px; flex: none; color: var(--accent); }
+.sugg-arrow svg { width: 20px; height: 20px; }
+.sugg-text {
+  color: var(--text);
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.welcome-foot {
+  max-width: 660px;
+  color: var(--faint);
+  font-size: 10.5px;
+}
+
+/* Mesajlar — Android 02_sohbet_kod ekranı */
+
+.messages { max-width: var(--max-chat); }
+.message { gap: 10px; margin: 17px 0; }
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(219, 75, 38, 0.35);
+  background: #db4b26;
+}
+.avatar img { object-fit: cover; }
+
+.message.user .bubble {
+  max-width: min(78%, 640px);
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 22px 22px 6px 22px;
+  background: var(--user-bubble);
+  color: #04252b;
+  font-size: 14px;
+  font-weight: 540;
+  line-height: 1.5;
+  box-shadow: none;
+}
+html[data-theme="light"] .message.user .bubble { color: #04252b; }
+
+.msg-head { margin: 0 0 6px 2px; gap: 6px; }
+.msg-author { color: var(--accent); font-size: 11px; }
+.msg-meta { color: var(--faint); font-size: 9.5px; }
+
+.agent-card {
+  padding: 15px 17px;
+  border: 1px solid #213840;
+  border-radius: 4px 20px 20px 20px;
+  background: var(--agent-bubble);
+  box-shadow: none;
+}
+html[data-theme="light"] .agent-card { border-color: #d9e6e3; }
+
+.md { font-size: 13.8px; line-height: 1.66; color: var(--text-soft); }
+.md code { background: #0a1418; color: var(--accent); border-color: var(--line); }
+
+.code-block {
+  margin-top: 12px;
+  border-color: #253d45;
+  border-radius: 15px;
+  background: #0a1418;
+}
+.code-head {
+  padding: 10px 14px;
+  background: #14242b;
+  border-bottom-color: #253d45;
+}
+.code-lang { color: var(--accent); font-size: 10px; text-transform: none; letter-spacing: 0.02em; }
+.code-copy {
+  padding: 4px 11px;
+  border-color: rgba(47, 219, 198, 0.25);
+  border-radius: 999px;
+  color: var(--accent);
+}
+.code-copy:hover { background: rgba(47, 219, 198, 0.09); border-color: rgba(47, 219, 198, 0.4); }
+.code-block pre { padding: 15px 16px; font-size: 12.2px; color: #d9e7ed; }
+
+.chips { gap: 6px; }
+.chip { border-radius: 999px; background: #14242b; padding: 3.5px 10px; font-size: 10px; }
+.chip-strong { color: var(--accent); border-color: rgba(47, 219, 198, 0.25); }
+
+.guard-item { border-radius: 0 10px 10px 0; background: rgba(244, 185, 66, 0.06); }
+.build-line { border-radius: 11px; background: #14242b; }
+
+.typing { gap: 10px; }
+.typing-bubble { height: 38px; border-radius: 4px 18px 18px 18px; background: var(--agent-bubble); border-color: #213840; }
+
+/* Giriş alanı — Android alt mesaj çubuğu */
+
+.composer-wrap {
+  padding: 0 clamp(12px, 3vw, 28px) max(10px, env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, transparent, var(--bg) 34%);
+}
+.composer { max-width: var(--max-chat); }
+.composer-box {
+  border: 1px solid #263d45;
+  border-radius: 25px;
+  background: #15232a;
+  box-shadow: none;
+}
+html[data-theme="light"] .composer-box { background: #ffffff; border-color: #d4e2df; }
+.composer-box:focus-within {
+  border-color: rgba(47, 219, 198, 0.55);
+  box-shadow: 0 0 0 3px rgba(47, 219, 198, 0.07);
+}
+
+#input {
+  min-height: 52px;
+  padding: 15px 18px 3px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+#input::placeholder { color: #83979b; }
+
+.composer-row { padding: 5px 8px 8px 14px; }
+.board-select-wrap {
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: #0d181d;
+  color: var(--muted);
+}
+html[data-theme="light"] .board-select-wrap { background: #edf5f3; }
+#boardSelect { font-size: 10.5px; }
+
+.send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #2a6fd6;
+  color: #ffffff;
+  box-shadow: none;
+}
+.send-btn:hover { filter: brightness(1.08); transform: none; background: #347dec; }
+.send-btn:active { transform: scale(0.97); }
+.send-btn:disabled { background: #2b373a; color: #859397; opacity: 1; }
+.send-btn svg { width: 21px; height: 21px; }
+
+.stop-btn { border-radius: 999px; background: #17272e; }
+
+.composer-hint {
+  justify-content: flex-start;
+  gap: 14px;
+  margin-top: 8px;
+  color: var(--faint);
+  font-size: 9.8px;
+}
+.hint-local { display: inline-flex; align-items: center; gap: 6px; flex: none; }
+.composer-hint > span:nth-child(2) { margin-left: auto; }
+kbd { border-radius: 5px; background: #14242b; }
+
+/* Mobil alt gezinme */
+
+.mobile-tabbar { display: none; }
+
+/* Diyaloglar — Android 06/10 ayarlar kartları */
+
+.dialog {
+  border: 1px solid #294049;
+  border-radius: 22px;
+  background: #0b151a;
+  box-shadow: var(--shadow);
+}
+html[data-theme="light"] .dialog { background: #f7fbfa; border-color: #cadbd7; }
+.dialog.settings-dialog { width: min(700px, calc(100vw - 24px)); }
+.dialog.model-dialog { width: min(740px, calc(100vw - 24px)); }
+
+.dialog-head {
+  padding: 17px 18px 15px;
+  background: #111c21;
+  border-bottom-color: var(--line);
+}
+html[data-theme="light"] .dialog-head { background: #ffffff; }
+.dialog-title-wrap { display: flex; align-items: center; gap: 11px; }
+.dialog-brand {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid rgba(219, 75, 38, 0.4);
+  flex: none;
+}
+.dialog-head h2 { font-size: 18px; }
+.dialog-head p { color: var(--muted); font-size: 10.5px; }
+
+.dialog-body { padding: 13px 14px 18px; background: #0a1114; }
+html[data-theme="light"] .dialog-body { background: #eef4f2; }
+
+.panel {
+  margin: 0 0 11px;
+  padding: 15px 16px;
+  border: 1px solid #20353d;
+  border-radius: 18px;
+  background: #111c21;
+}
+html[data-theme="light"] .panel { background: #ffffff; border-color: #d6e4e1; }
+.panel:last-child { padding-bottom: 15px; border-bottom: 1px solid #20353d; }
+html[data-theme="light"] .panel:last-child { border-bottom-color: #d6e4e1; }
+
+.panel h3 {
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.row { padding: 8px 0; }
+.row strong { font-size: 13px; }
+.row p { font-size: 10.5px; }
+.kv { padding: 5px 0; font-size: 11.5px; }
+.kv span { color: var(--muted); }
+.kv b { color: var(--text-soft); }
+
+.select, .input {
+  padding: 8px 11px;
+  border-radius: 11px;
+  border-color: var(--line-strong);
+  background: #17272e;
+}
+html[data-theme="light"] .select,
+html[data-theme="light"] .input { background: #eef5f3; }
+.select option { background: #111c21; color: var(--text); }
+
+.switch span { background: #263c44; }
+.switch input:checked + span { background: var(--accent-strong); }
+.switch span::after { background: #08221f; }
+
+.btn { padding: 8px 13px; border-radius: 11px; font-size: 11.5px; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { background: var(--accent-strong); }
+.btn-ghost { background: #14242b; border-color: #2a4149; }
+html[data-theme="light"] .btn-ghost { background: #eef5f3; border-color: #d3e1de; }
+.btn-danger { border-radius: 11px; }
+
+.progress-track { height: 7px; background: #0a1418; }
+.progress-bar { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.test-result { border-radius: 12px; background: #0d191e; }
+html[data-theme="light"] .test-result { background: #f2f8f7; }
+
+.toast {
+  top: 82px;
+  border-radius: 12px;
+  background: #17272e;
+  border-color: #2b454d;
+  box-shadow: var(--shadow-soft);
+}
+html[data-theme="light"] .toast { background: #ffffff; }
+
+.scroll-bottom { border-radius: 50%; background: #17272e; }
+
+/* Tablet ve telefon */
+
+@media (max-width: 980px) {
+  .sidebar {
+    inset: auto 0 0 0;
+    width: 100%;
+    max-height: 84dvh;
+    padding: 9px 16px calc(16px + env(safe-area-inset-bottom));
+    transform: translateY(105%);
+    border-right: 0;
+    border-top: 1px solid #2a424a;
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -22px 60px -20px rgba(0, 0, 0, 0.8);
+  }
+  html[data-theme="light"] .sidebar { border-top-color: #d4e2df; }
+  .sidebar.open { transform: translateY(0); }
+  .sheet-handle {
+    display: block;
+    width: 42px;
+    height: 4px;
+    margin: 0 auto 10px;
+    border-radius: 999px;
+    background: #3d555c;
+    flex: none;
+  }
+  .brand { padding-bottom: 10px; }
+  .history-sheet-head { display: block; }
+  .icon-btn.sidebar-close { display: grid; }
+  .menu-btn { display: grid; }
+  .top-action-btn#settingsBtn { display: none; }
+
+  .mobile-tabbar {
+    position: relative;
+    z-index: 25;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    flex: none;
+    padding: 6px 10px calc(6px + env(safe-area-inset-bottom));
+    background: #102326;
+    border-top: 1px solid rgba(255, 255, 255, 0.045);
+  }
+  html[data-theme="light"] .mobile-tabbar { background: #f8fbfa; border-top-color: #d8e5e2; }
+
+  .mobile-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-height: 52px;
+    padding: 5px 8px;
+    border: 0;
+    border-radius: 24px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 10.5px;
+    font-weight: 550;
+  }
+  .mobile-tab svg { width: 22px; height: 22px; }
+  .mobile-tab.active {
+    background: #2a6fd6;
+    color: #ffffff;
+  }
+  .mobile-tab:focus-visible { outline-offset: -2px; }
+
+  .scroll-bottom { bottom: 154px; }
+  .chat-scroll { padding-bottom: 18px; }
+}
+
+@media (max-width: 680px) {
+  :root { --topbar-h: 64px; }
+
+  .topbar { padding: 8px 10px; gap: 6px; }
+  .topbar-logo { width: 36px; height: 36px; border-radius: 11px; }
+  .top-brand { gap: 9px; }
+  .top-title h1 { font-size: 14.5px; }
+  .top-title p { font-size: 9.5px; }
+  .top-actions { gap: 1px; }
+  .model-chip { max-width: 104px; padding: 0 8px; font-size: 9.8px; }
+  .model-chip #modelChipText { max-width: 70px; }
+  .net-chip { display: none; }
+  .icon-btn { width: 40px; height: 40px; }
+
+  .chat-scroll { padding: 12px 10px 16px; }
+  .welcome { padding-top: 10px; }
+  .welcome-logo { width: 96px; height: 96px; border-radius: 26px; margin-bottom: 16px; }
+  .welcome h2 { font-size: 28px; }
+  .welcome-lead { font-size: 13.5px; line-height: 1.55; }
+  .welcome-privacy { margin-bottom: 18px; font-size: 10.8px; }
+  .suggestions { gap: 8px; margin-bottom: 16px; }
+  .suggestion { min-height: 52px; padding: 12px 14px; border-radius: 14px; }
+  .sugg-text { font-size: 13.5px; }
+  .welcome-foot { font-size: 9.8px; }
+
+  .message { gap: 8px; margin: 14px 0; }
+  .avatar { width: 32px; height: 32px; }
+  .message.user .bubble { max-width: 87%; padding: 11px 15px; font-size: 13.5px; border-radius: 20px 20px 5px 20px; }
+  .agent-card { padding: 12px 13px; border-radius: 4px 17px 17px 17px; }
+  .md { font-size: 13.2px; }
+  .code-block pre { font-size: 11.2px; padding: 13px 12px; }
+  .code-head { padding: 9px 11px; }
+
+  .composer-wrap { padding: 0 9px max(8px, env(safe-area-inset-bottom)); }
+  .composer-box { border-radius: 23px; }
+  #input { padding: 13px 15px 2px; min-height: 48px; font-size: 13.5px; }
+  .composer-row { padding: 4px 6px 7px 11px; }
+  .composer-hint { gap: 8px; font-size: 9.2px; }
+  .composer-hint > span:nth-child(2) { display: none; }
+  .hint-local { white-space: nowrap; }
+  #boardSelect { max-width: 120px; font-size: 10px; }
+  .send-btn { width: 44px; height: 44px; }
+  .char-count { display: none; }
+
+  .mobile-tabbar { padding-left: 8px; padding-right: 8px; }
+  .mobile-tab { min-height: 50px; font-size: 10px; }
+
+  .dialog {
+    inset: auto 0 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: 92dvh;
+    margin: 0;
+    border-radius: 24px 24px 0 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+  }
+  .dialog.settings-dialog,
+  .dialog.model-dialog,
+  .dialog.confirm-dialog { width: 100%; }
+  .dialog-head { padding: 15px 14px 12px; }
+  .dialog-body { max-height: calc(92dvh - 72px); padding: 11px 11px 16px; }
+  .dialog-brand { width: 34px; height: 34px; border-radius: 10px; }
+  .panel { border-radius: 16px; padding: 14px; }
+  .scroll-bottom { bottom: 146px; right: 12px; }
+  .toast { top: 70px; }
+}
+
+@media (max-width: 400px) {
+  .model-chip { max-width: 88px; }
+  .model-chip #modelChipText { max-width: 58px; }
+  .welcome h2 { font-size: 26px; }
+}
