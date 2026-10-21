@@ -2321,3 +2321,9 @@ html[data-theme="light"] .toast { background: #ffffff; }
   .model-chip #modelChipText { max-width: 58px; }
   .welcome h2 { font-size: 26px; }
 }
+
+@media (max-width: 360px) {
+  .model-chip { width: 34px; max-width: 34px; padding: 0; justify-content: center; }
+  .model-chip #modelChipText { display: none; }
+  .top-title h1 { font-size: 14px; }
+}

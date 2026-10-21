@@ -259,6 +259,16 @@ async function main() {
       "fixed", "tablet geçmiş paneli sabit değil");
     assert.ok(await page.$eval(".topbar-logo", (img) => img.naturalWidth > 0));
 
+    // Çok dar telefon: taşma yok, model durumu nokta olarak erişilebilir kalır.
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.waitForTimeout(250);
+    assert.ok(await page.evaluate(() => document.body.scrollWidth <= window.innerWidth),
+      "320 px ekranda yatay taşma var");
+    assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector(".mobile-tabbar")).display),
+      "grid", "320 px alt gezinmesi görünmüyor");
+    assert.ok((await page.$eval(".model-chip", (node) => node.getBoundingClientRect().width)) <= 36);
+    assert.match(await page.getAttribute("#modelChip", "aria-label"), /^Yerel model: Model hazır/);
+
     // Kullanıcı metni HTML olarak çalıştırılmaz
     await page.fill("#input", '<img src=x onerror="window.__xss=1"><script>window.__xss=2</script>');
     await page.press("#input", "Enter");
